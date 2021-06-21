@@ -9,6 +9,12 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlumnoComponent } from './components/alumno/alumno.component';
+import { SlideComponent } from './components/slide/slide.component';
+import { AlumnoFormComponent } from './components/alumno/alumno-form/alumno-form.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PagoComponent } from './components/pago/pago.component';
+import { PagoFormComponent } from './components/pago/pago-form/pago-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { AlumnoComponent } from './components/alumno/alumno.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AlumnoComponent
+    AlumnoComponent,
+    SlideComponent,
+    AlumnoFormComponent,
+    MenuComponent,
+    NavbarComponent,
+    PagoComponent,
+    PagoFormComponent
   ],
   imports: [
     BrowserModule,
