@@ -1,0 +1,86 @@
+/*Slider*/
+.contenedor-slider {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 40%;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  display: none;
+}
+
+.prev,
+.next {
+  width: 10%;
+  height: 100%;
+  margin-top: 10;
+  position: absolute;
+  top: 0;
+  font-family: monospace;
+  text-align: center;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(192, 180, 180, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.next {
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(192, 180, 180, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.nav {
+  width: 100%;
+  height: 10px;
+  bottom: 0%;
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+}
+
+.dots {
+  width: 24.5%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  background: rgba(252, 252, 252, 0.6);
+}
+
+.slider {
+  z-index: -1;
+}
+
+#i1:checked ~ #img1,
+#i2:checked ~ #img2,
+#i3:checked ~ #img3,
+#i4:checked ~ #img4 {
+  z-index: 9;
+}
+
+/* .checkbox:checked ~ .slider {
+  z-index: 9;
+} */

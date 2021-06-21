@@ -1,0 +1,55 @@
+<div class="sidebar-container">
+  <div class="logo">
+    <a>
+      <h3>GYM - Pepito</h3>
+    </a>
+  </div>
+  <div class="menu">
+    <!--Profesor o Administrador-->
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-person"></i> Inscribir Alumno</a
+    >
+    <div class="dropend">
+      <a
+        class="nav-link d-block dropdown-toggle"
+        href=""
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="icon ion-md-checkbox"></i> Pagos</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['pago-table']"
+            ><i class="icon ion-md-book"></i> Ver Pagos</a
+          >
+        </li>
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['pago-form']"
+            ><i class="icon ion-md-wallet"></i> Registrar Pago</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-walk"></i> Asignar Rutina</a
+    >
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-podium"></i> Estadísticas</a
+    >
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-body"></i> Dieta</a
+    >
+
+    <!--Alumno-->
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-grid"></i> Asistencia</a
+    >
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-fitness"></i> Opción 2</a
+    >
+    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+      ><i class="icon ion-md-pricetags"></i> Pago de Cuotas</a
+    >
+  </div>
+</div>

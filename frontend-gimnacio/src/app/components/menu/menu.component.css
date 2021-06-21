@@ -1,0 +1,44 @@
+.sidebar-container {
+  min-height: 50vw;
+  background-color: rgb(88, 85, 85);
+}
+
+.logo {
+  /* padding: 0.875 rem 1.25rem; */
+  margin-top: 0px;
+  padding-top: 2rem;
+  padding-left: 10%;
+  line-height: normal;
+  width: 70%;
+  margin-left: 15%;
+  color: white;
+}
+
+.menu {
+  /* width: 18rem; */
+  min-width: 5vw;
+  margin-top: 0px;
+  padding: 20px;
+}
+
+.menu .nav-link {
+  padding: 3px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  width: 70%;
+}
+
+.dropdown-menu {
+  background-color: rgb(143, 140, 140);
+}
+
+.text-menu {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: gray;
+}
