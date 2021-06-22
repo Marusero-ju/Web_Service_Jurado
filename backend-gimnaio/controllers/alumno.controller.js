@@ -28,7 +28,7 @@ alumnoCtrl.getAlumno = async (req, res) => {
 alumnoCtrl.editAlumno = async (req, res) => {
  const valumno = new Alumno(req.body);
  try {
- await Alumno.updateOne({_id: req.body._id}, vagente);
+ await Alumno.updateOne({_id: req.body._id}, valumno);
  res.json({
  'status': '1',
  'msg': 'Alumno actualizado'
