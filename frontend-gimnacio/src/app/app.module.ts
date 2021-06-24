@@ -18,6 +18,7 @@ import { PagoFormComponent } from './components/pago/pago-form/pago-form.compone
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { LoginService } from './services/login.service';
     MenuComponent,
     NavbarComponent,
     PagoComponent,
-    PagoFormComponent
+    PagoFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
