@@ -3,25 +3,57 @@
     <h3>Registrar Alumno</h3>
   </div>
   <div class="card-body">
-    <form class="form-alumno row">
+    <form class="form-alumno row" #alumnoForm="ngForm">
       <label for="nombre" class="form-label col-4 mb-3">Nombre</label>
       <input
         type="text"
         class="form-control w-50 mb-3"
         id="nombre"
-        aria-describedby="emailHelp"
+        name="nombre"
+        [(ngModel)]="alumno.nombre"
+        required
+        #nombre="ngModel"
       />
+      <div
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="apllido" class="form-label col-4 mb-3">Apellido</label>
-      <input type="textord" class="form-control w-50 mb-3" id="apllido" />
+      <input
+        type="textord"
+        class="form-control w-50 mb-3"
+        id="apllido"
+        name="apellido"
+        [(ngModel)]="alumno.apellido"
+        required
+        #apellido="ngModel"
+      />
+      <div
+        *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="dni" class="form-label col-4 mb-3">DNI</label>
       <input
         type="number"
         class="form-control w-50 mb-3"
         id="dni"
-        aria-describedby="emailHelp"
+        name="dni"
+        [(ngModel)]="alumno.dni"
+        required
+        #dni="ngModel"
       />
+      <div
+        *ngIf="dni.invalid && (dni.dirty || dni.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="fechanacimiento" class="form-label col-4 mb-3"
         >Fecha de Nacimiento</label
@@ -30,32 +62,71 @@
         type="date"
         class="form-control w-50 mb-3"
         id="fechanacimiento"
-        aria-describedby="emailHelp"
+        name="fechaNacimiento"
+        [(ngModel)]="alumno.fecha_nacimiento"
+        required
+        #fechaNacimiento="ngModel"
       />
+      <div
+        *ngIf="
+          fechaNacimiento.invalid &&
+          (fechaNacimiento.dirty || fechaNacimiento.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="celular" class="form-label col-4 mb-3">Celular</label>
       <input
         type="text"
         class="form-control w-50 mb-3"
         id="celular"
-        aria-describedby="emailHelp"
+        name="celular"
+        [(ngModel)]="alumno.celular"
+        required
+        #celular="ngModel"
       />
+      <div
+        *ngIf="celular.invalid && (celular.dirty || celular.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="domicilio" class="form-label col-4 mb-3">Domicilio</label>
       <input
         type="text"
         class="form-control w-50 mb-3"
         id="domicilio"
-        aria-describedby="emailHelp"
+        name="domicilio"
+        [(ngModel)]="alumno.domicilio"
+        required
+        #domicilio="ngModel"
       />
+      <div
+        *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="email" class="form-label col-4 mb-3">Email</label>
       <input
         type="email"
         class="form-control w-50 mb-3"
         id="email"
-        aria-describedby="emailHelp"
+        name="email"
+        [(ngModel)]="alumno.email"
+        required
+        #email="ngModel"
       />
+      <div
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="fechainicio" class="form-label col-4 mb-3"
         >Fecha de Inicio</label
@@ -64,70 +135,61 @@
         type="date"
         class="form-control w-50 mb-3"
         id="fechainicio"
-        aria-describedby="emailHelp"
+        name="fechaInicio"
+        [(ngModel)]="alumno.fecha_inicio"
+        required
+        #fechaInicio="ngModel"
       />
+      <div
+        *ngIf="
+          fechaInicio.invalid && (fechaInicio.dirty || fechaInicio.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
-      <label for="plan" class="form-label col-4 mb-3">Plan</label>
+      <label for="idplan" class="form-label col-4 mb-3">Plan</label>
       <select
         class="form-select w-50 mb-3"
-        aria-label="Default select example"
-        id="plan"
+        name="plan"
+        id="idplan"
+        [(ngModel)]="alumno.plan"
+        required
+        #plan="ngModel"
       >
-        <option selected>Seleccione un plan</option>
-        <option value="1">Básico (3 días x semana)</option>
-        <option value="2">Full (5 días x semana)</option>
-        <option value="3">Pase libre</option>
+        <option *ngFor="let plan of planes" [ngValue]="plan">
+          {{ plan.nombre }} - ${{ plan.costo }}
+        </option>
       </select>
+      <div
+        *ngIf="plan.invalid && (plan.dirty || plan.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
-      <button type="submit" class="btn btn-primary col-3 mt-3 mx-auto">
+      <button
+        type="submit"
+        class="btn btn-primary col-3 mt-3 mx-auto"
+        (click)="agregarAlumno(alumnoForm)"
+      >
         Registrar
       </button>
+      <button
+        type="button"
+        class="btn btn-primary col-3 mt-3 mx-auto"
+        (click)="limpiarFormulario(alumnoForm)"
+      >
+        Limpiar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary col-3 mt-3 mx-auto"
+        (click)="cancelar()"
+      >
+        Cancelar
+      </button>
     </form>
-
-    <!-- <form #noticiaForm ="ngForm">
-            <div class="mb-3">
-                <label for="txttitulo" class="form-label">Titulo</label>
-                <input name="titulo" type="text" class="form-control" id="txttitulo"
-                   [(ngModel)]="noticia.titulo" required #titulo="ngModel">
-                <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="txtdescripcion" class="form-label">Descripción</label>
-                <textarea class="txtaria form-control" name="descripcion" id="" rows="5" id="txtdescripcion" [(ngModel)]="noticia.noticia" required #descripcion="ngModel"></textarea>
-                <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="txtimg" class="form-label">URL Noticia</label>
-                <input name="img" type="text" class="form-control" id="txtimg"
-                   [(ngModel)]="noticia.img" required #src="ngModel">
-                <div *ngIf="src.invalid && (src.dirty || src.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="idvigente" class="form-label">Vigente</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexActivo" (change)="estadoNoticia(1)">
-                    <label class="form-check-label" for="flexRadioActivo">
-                      Activo
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioInactivo" checked (change)="estadoNoticia(0)">
-                    <label class="form-check-label" for="flexRadioInactivo">
-                      Inactivo
-                    </label>
-                  </div>
-            </div>
-            <div class="d-flex justify-content-evenly">
-                <button type="button" class="btn btn-primary" (click)="agregarNoticia(noticiaForm)" [disabled]="noticiaForm.invalid">Guardar</button>
-                <button type="button" class="btn btn-primary" (click)="limpiarFormulario(noticiaForm)">Limpiar</button>
-                <button type="button" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
-            </div>
-        </form> -->
   </div>
 </div>
