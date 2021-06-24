@@ -4,7 +4,7 @@ const alumnoCtrl = require('./../controllers/alumno.controller');
 const express = require('express');
 const router = express.Router();
 //definimos las rutas para la gestion de alumno
-router.get('/', alumnoCtrl.getAlumno);
+router.get('/', alumnoCtrl.getAlumnos);
 router.post('/', alumnoCtrl.createAlumno);
 router.get('/:id', alumnoCtrl.getAlumno);
 router.put('/:id', alumnoCtrl.editAlumno);
