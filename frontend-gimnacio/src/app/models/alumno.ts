@@ -6,11 +6,11 @@ export class Alumno extends User{
     apellido: string;
     nombre: string;
     dni: string;
-    fechaNacimiento: Date;
+    fecha_nacimiento: Date;
     celular: string;
     domicilio: string;
     email: string;
-    fechaInicio: Date;
+    fecha_inicio: Date;
     plan: Plan; //Tipo Plan
 
     constructor(username?:string, password?:string, roles?:[], activo?:boolean){
