@@ -12,6 +12,7 @@ app.use('/api/agente', require('./routes/agente.route.js'));
 app.use('/api/sector', require('./routes/sector.route.js'));
 app.use('/api/alumno', require('./routes/alumno.route.js'));
 app.use('/api/plan', require('./routes/planes.route.js'));
+app.use('/api/usuarios', require('./routes/usuario.route'));
 
 //setting
 app.set('port', process.env.PORT || 3000);
