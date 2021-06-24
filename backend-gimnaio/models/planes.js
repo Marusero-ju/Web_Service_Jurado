@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-const PlanesSchema = new Schema({
- id_plan: {type: Int16Array, required: true},   
- nombre: {type: CharacterData, required: true},
- costo: {type: String, required: true},
- detalles: {type:CharacterData, required: true},
- frecuencia: {type:Int16Array, required: true}
+const PlanesSchema = new Schema({  
+    nombre: {type: String, required: true},
+    costo: {type: Number, required: true},
+    detalles: {type:String, required: true},
+    frecuencia: {type:Number, required: true}
  
 })
 module.exports = mongoose.models.Planes || mongoose.model('Planes', PlanesSchema);

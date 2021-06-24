@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
+const Planes = require('./planes')
+
 const AlumnoSchema = new Schema({
-
- _id: {type: Number, required: true},
- apellido: {type: String, required: true},
- nombre: {type:String, required: true},
- dni: {type: Number, required: true},
- fecha_nacimiento: {type:String, required: true},
- celular: {type:Number, required:true},
- domicilio: {type:String, required: true},
- email: {type:String, required: true},
- fecha_inicio: {type:String, required: true},
- plan: {type:String, required: true}
-
+    apellido: {type: String, required: true},
+    nombre: {type:String, required: true},
+    dni: {type: String, required: true},
+    fecha_nacimiento: {type:Date, required: true},
+    celular: {type:String, required:true},
+    domicilio: {type:String, required: true},
+    email: {type:String, required: true},
+    fecha_inicio: {type:Date, required: true},
+    plan: {type: Schema.Types.ObjectId, ref: Planes, required: true}
 })
 module.exports = mongoose.models.Alumno || mongoose.model('Alumno', AlumnoSchema);
