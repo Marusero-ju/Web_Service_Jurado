@@ -9,5 +9,5 @@ apellido: {type:String, required:true},
 perfil: {type:String, required: true} //-- administrador – visitante -administrativo
 
 });
-//exporto objeto para que pueda ser usado en otros lugares
+//exporto objeto para que pueda ser usado en otros lugares 
 module.exports = mongoose.model('Usuario', UsuarioSchema);
