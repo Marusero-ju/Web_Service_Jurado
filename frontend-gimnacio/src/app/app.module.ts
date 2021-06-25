@@ -17,6 +17,9 @@ import { PagoComponent } from './components/pago/pago.component';
 import { PagoFormComponent } from './components/pago/pago-form/pago-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './services/login.service';
+import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     NavbarComponent,
     PagoComponent,
-    PagoFormComponent
+    PagoFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,7 @@ import { FormsModule } from '@angular/forms';
     ToastrModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
