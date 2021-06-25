@@ -17,9 +17,9 @@ import { PagoComponent } from './components/pago/pago.component';
 import { PagoFormComponent } from './components/pago/pago-form/pago-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxDataTableModule } from 'angular-9-datatable';
 import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
-
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    NgxDataTableModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
