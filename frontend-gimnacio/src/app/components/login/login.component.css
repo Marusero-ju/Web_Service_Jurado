@@ -1,0 +1,47 @@
+/*propiedades de la tarjeta*/
+.card{
+  width: 450px;
+  margin: auto;
+  background: #3282b8;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+}
+
+
+
+/*propiedades de texto del formulario*/
+.form-group{
+  color: white;
+  text-transform: capitalize;
+}
+
+/*propiedades de hover del boton*/
+button:hover{
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  transition: 0.25s;
+  background-color: #0f4c75;
+  color:#bbe1fa;
+}
+
+/*propiedades de color del boton*/
+button{
+  font-size: 110%;
+    color:#1b262c;
+    width: 100%;
+    height: 40px;
+    border: none;
+
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+
+    background-color: #bbe1fa;
+
+    margin-top: 10px;
+}
