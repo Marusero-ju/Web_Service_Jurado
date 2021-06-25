@@ -39,7 +39,7 @@ export class AlumnoFormComponent implements OnInit {
       },
       error => {
         console.log(error);
-        alert('Error al cargar los Agentes');
+        this.toastr.warning('Error en el server al cargar los Planes');
       }
       
     )
