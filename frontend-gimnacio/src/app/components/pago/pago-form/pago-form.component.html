@@ -3,86 +3,138 @@
     <h3>Registrar Pago</h3>
   </div>
   <div class="card-body">
-    <form class="form-alumno row">
+    <form class="form-alumno row" #pagoForm="ngForm">
       <label for="monto" class="form-label col-4 mb-3">Monto</label>
-      <input type="number" class="form-control w-50 mb-3" id="monto" />
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="monto"
+        name="monto"
+        [(ngModel)]="pago.monto"
+        #monto="ngModel"
+        required
+      />
+      <div
+        *ngIf="monto.invalid && (monto.dirty || monto.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="fechapago" class="form-label col-4 mb-3">Fecha de Pago</label>
-      <input type="date" class="form-control w-50 mb-3" id="fechapago" />
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fechapago"
+        name="fecha_pago"
+        [(ngModel)]="pago.fecha_pago"
+        #fecha_pago="ngModel"
+        required
+      />
+      <div
+        *ngIf="fecha_pago.invalid && (fecha_pago.dirty || fecha_pago.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="modopago" class="form-label col-4 mb-3">Modo de Pago</label>
       <select
         class="form-select w-50 mb-3"
         aria-label="Default select example"
         id="plan"
+        name="plan"
+        [(ngModel)]="pago.forma_pago"
+        #plan="ngModel"
+        required
       >
         <option selected>Seleccione un Modo de Pago</option>
-        <option value="1">Contado</option>
-        <option value="2">Débito</option>
-        <option value="3">Crédito</option>
+        <option value="Contado">Contado</option>
+        <option value="Debito">Débito</option>
+        <option value="Credito">Crédito</option>
       </select>
+      <div
+        *ngIf="plan.invalid && (plan.dirty || plan.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
       <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
       <select
         class="form-select w-50 mb-3"
         aria-label="Default select example"
-        id="plan"
+        id="alumno"
+        name="alumno"
+        [(ngModel)]="pago.alumno"
+        #alumno="ngModel"
+        required
       >
-        <option selected>Seleccione un Alumno</option>
-        <option value="1">Alumno 1</option>
-        <option value="2">Alumno 2</option>
-        <option value="3">Alumno 3</option>
+        <option *ngFor="let alumno of alumnos" [ngValue]="alumno">
+          {{ alumno.apellido }}, {{ alumno.nombre }} - {{ alumno.dni }}
+        </option>
       </select>
+      <div
+        *ngIf="alumno.invalid && (alumno.dirty || alumno.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
 
-      <button type="submit" class="btn btn-primary col-3 mt-3 mx-auto">
-        Registrar
-      </button>
+      <label for="fechavencimiento" class="form-label col-4 mb-3"
+        >Fecha de Vencimiento</label
+      >
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fechavencimiento"
+        name="fecha_vencimiento"
+        [(ngModel)]="pago.fecha_vencimiento"
+        #fecha_vencimiento="ngModel"
+        required
+      />
+      <div
+        *ngIf="
+          fecha_vencimiento.invalid &&
+          (fecha_vencimiento.dirty || fecha_vencimiento.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="completo" class="form-label col-4 mb-3">Pago Completo</label>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="completo"
+        [(ngModel)]="pago.completo"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <div class="d-flex justify-content-evenly">
+        <button
+          type="submit"
+          class="btn btn-dark col-3 mt-3 mx-auto"
+          (click)="agregarPago(pagoForm)"
+        >
+          Registrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-3 mt-3 mx-auto"
+          (click)="limpiarFormulario(pagoForm)"
+        >
+          Limpiar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-3 mt-3 mx-auto"
+          (click)="cancelar()"
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
-
-    <!-- <form #noticiaForm ="ngForm">
-            <div class="mb-3">
-                <label for="txttitulo" class="form-label">Titulo</label>
-                <input name="titulo" type="text" class="form-control" id="txttitulo"
-                   [(ngModel)]="noticia.titulo" required #titulo="ngModel">
-                <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="txtdescripcion" class="form-label">Descripción</label>
-                <textarea class="txtaria form-control" name="descripcion" id="" rows="5" id="txtdescripcion" [(ngModel)]="noticia.noticia" required #descripcion="ngModel"></textarea>
-                <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="txtimg" class="form-label">URL Noticia</label>
-                <input name="img" type="text" class="form-control" id="txtimg"
-                   [(ngModel)]="noticia.img" required #src="ngModel">
-                <div *ngIf="src.invalid && (src.dirty || src.touched)" class="text-danger">
-                  * Este campo es requerido
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="idvigente" class="form-label">Vigente</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexActivo" (change)="estadoNoticia(1)">
-                    <label class="form-check-label" for="flexRadioActivo">
-                      Activo
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioInactivo" checked (change)="estadoNoticia(0)">
-                    <label class="form-check-label" for="flexRadioInactivo">
-                      Inactivo
-                    </label>
-                  </div>
-            </div>
-            <div class="d-flex justify-content-evenly">
-                <button type="button" class="btn btn-primary" (click)="agregarNoticia(noticiaForm)" [disabled]="noticiaForm.invalid">Guardar</button>
-                <button type="button" class="btn btn-primary" (click)="limpiarFormulario(noticiaForm)">Limpiar</button>
-                <button type="button" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
-            </div>
-        </form> -->
   </div>
 </div>

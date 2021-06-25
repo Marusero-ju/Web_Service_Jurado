@@ -4,30 +4,192 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-hover table-bordered">
+      <table
+        class="table table-hover table-bordered"
+        [mfData]="pagos"
+        #mf="mfDataTable"
+        [mfRowsOnPage]="5"
+      >
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">
+              <mfDefaultSorter by="alumno.apellido">Alumno</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="fecha_pago">Fecha de Pago</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="fecha_vencimiento"
+                >Fecha de Vencimiento</mfDefaultSorter
+              >
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="monto">Monto</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="forma_pago">Forma de Pago</mfDefaultSorter>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+          <tr *ngFor="let pago of mf.data">
+            <td class="button">
+              <button type="button" class="btn" (click)="seleccionarPago(pago)">
+                <i class="icon ion-md-create"></i>
+              </button>
+            </td>
+            <td>{{ pago.alumno.apellido }}</td>
+            <td>{{ pago.fecha_pago | date: "dd/MM/yyyy" }}</td>
+            <td>{{ pago.fecha_vencimiento | date: "dd/MM/yyyy" }}</td>
+            <td>${{ pago.monto }}</td>
+            <td>{{ pago.forma_pago }}</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator
+                [rowsOnPageSet]="[5, 10, 25]"
+              ></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
+  </div>
+</div>
+
+<div *ngIf="mostrar_pago" class="card text-center row">
+  <div class="card-header">
+    <h3>Modificar Pago</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-alumno row" #pagoForm="ngForm">
+      <label for="monto" class="form-label col-4 mb-3">Monto</label>
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="monto"
+        name="monto"
+        [(ngModel)]="pago.monto"
+        #monto="ngModel"
+        required
+      />
+      <div
+        *ngIf="monto.invalid && (monto.dirty || monto.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="fechapago" class="form-label col-4 mb-3">Fecha de Pago</label>
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fechapago"
+        name="fecha_pago"
+        [(ngModel)]="pago.fecha_pago"
+        #fecha_pago="ngModel"
+        required
+      />
+      <div
+        *ngIf="fecha_pago.invalid && (fecha_pago.dirty || fecha_pago.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="modopago" class="form-label col-4 mb-3">Modo de Pago</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="plan"
+        name="plan"
+        [(ngModel)]="pago.forma_pago"
+        #plan="ngModel"
+        required
+      >
+        <option selected>Seleccione un Modo de Pago</option>
+        <option value="Contado">Contado</option>
+        <option value="Debito">Débito</option>
+        <option value="Credito">Crédito</option>
+      </select>
+      <div
+        *ngIf="plan.invalid && (plan.dirty || plan.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="alumno"
+        name="alumno"
+        [(ngModel)]="pago.alumno"
+        #alumno="ngModel"
+        required
+      >
+        <option *ngFor="let alumno of alumnos" [ngValue]="alumno">
+          {{ alumno.apellido }}, {{ alumno.nombre }} - {{ alumno.dni }}
+        </option>
+      </select>
+      <div
+        *ngIf="alumno.invalid && (alumno.dirty || alumno.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="fechavencimiento" class="form-label col-4 mb-3"
+        >Fecha de Vencimiento</label
+      >
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fechavencimiento"
+        name="fecha_vencimiento"
+        [(ngModel)]="pago.fecha_vencimiento"
+        #fecha_vencimiento="ngModel"
+        required
+      />
+      <div
+        *ngIf="
+          fecha_vencimiento.invalid &&
+          (fecha_vencimiento.dirty || fecha_vencimiento.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="completo" class="form-label col-4 mb-3">Pago Completo</label>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="completo"
+        [(ngModel)]="pago.completo"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <div class="d-flex justify-content-evenly">
+        <button
+          type="submit"
+          class="btn btn-dark col-3 mt-3 mx-auto"
+          (click)="modificarPago(pagoForm)"
+        >
+          Modificar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-3 mt-3 mx-auto"
+          (click)="cancelar(pagoForm)"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
   </div>
 </div>
