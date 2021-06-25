@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
  login() {
   this.loginService.login(this.userform.username, this.userform.password)
   .subscribe(
+
   (result) => {
+    console.log("entro");
   var user = result;
   if (user.status == 1){
   //guardamos el user en cookies en el cliente
