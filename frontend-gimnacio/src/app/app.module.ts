@@ -18,6 +18,8 @@ import { PagoFormComponent } from './components/pago/pago-form/pago-form.compone
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxDataTableModule } from 'angular-9-datatable';
+import { LoginService } from './services/login.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { NgxDataTableModule } from 'angular-9-datatable';
     MenuComponent,
     NavbarComponent,
     PagoComponent,
-    PagoFormComponent
+    PagoFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { NgxDataTableModule } from 'angular-9-datatable';
     FormsModule,
     NgxDataTableModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
