@@ -1,0 +1,77 @@
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Registrar Asistencia</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-alumno row" #asistenciaForm="ngForm">
+
+
+      <label for="fecha" class="form-label col-4 mb-3">Fecha</label>
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fecha"
+        name="fecha"
+        [(ngModel)]="asistencia.fecha"
+        #fecha="ngModel"
+        required
+      />
+      <div
+        *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+
+
+      <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="alumno"
+        name="alumno"
+        [(ngModel)]="asistencia.alumno"
+        #alumno="ngModel"
+        required
+      >
+        <option *ngFor="let alumno of alumnos" [ngValue]="alumno">
+          {{ alumno.apellido }}, {{ alumno.nombre }} - {{ alumno.dni }}
+        </option>
+      </select>
+      <div
+        *ngIf="alumno.invalid && (alumno.dirty || alumno.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+
+      <div class="row">
+        <button
+          type="submit"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="agregarAsistencia(asistenciaForm)"
+          [disabled]="asistenciaForm.invalid"
+        >
+          Registrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="limpiarFormulario(asistenciaForm)"
+        >
+          Limpiar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="cancelar()"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
