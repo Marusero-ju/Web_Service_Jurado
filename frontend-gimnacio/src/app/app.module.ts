@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { NgxDataTableModule } from 'angular-9-datatable';
 import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
+import { PlanComponent } from './components/plan/plan.component';
+import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     PagoComponent,
     PagoFormComponent,
-    LoginComponent
+    LoginComponent,
+    PlanComponent,
+    PlanFormComponent
   ],
   imports: [
     BrowserModule,

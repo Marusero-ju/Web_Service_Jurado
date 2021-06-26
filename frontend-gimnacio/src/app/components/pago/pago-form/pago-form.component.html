@@ -112,24 +112,25 @@
         [ngModelOptions]="{ standalone: true }"
       />
 
-      <div class="d-flex justify-content-evenly">
+      <div class="row">
         <button
           type="submit"
-          class="btn btn-dark col-3 mt-3 mx-auto"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="agregarPago(pagoForm)"
+          [disabled]="pagoForm.invalid"
         >
           Registrar
         </button>
         <button
           type="button"
-          class="btn btn-dark col-3 mt-3 mx-auto"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="limpiarFormulario(pagoForm)"
         >
           Limpiar
         </button>
         <button
           type="button"
-          class="btn btn-dark col-3 mt-3 mx-auto"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="cancelar()"
         >
           Cancelar

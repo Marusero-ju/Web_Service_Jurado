@@ -1,0 +1,64 @@
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Planes Disponibles</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-hover table-bordered"
+        [mfData]="planes"
+        #mf="mfDataTable"
+        [mfRowsOnPage]="5"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Modificar</th>
+            <th scope="col">
+              <mfDefaultSorter by="nombre">Nombre</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="costo">Costo</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="detalle">Detalle</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="frecuencia">Frecuencia</mfDefaultSorter>
+            </th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plan of mf.data">
+            <td class="button">
+              <button type="button" class="btn" (click)="seleccionarPlan(pago)">
+                <i class="icon ion-md-create"></i>
+              </button>
+            </td>
+            <td>{{ plan.nombre }}</td>
+            <td>${{ plan.costo }}</td>
+            <td>{{ plan.detalle }}</td>
+            <td>{{ plan.frecuencia }}</td>
+            <td class="button">
+              <button type="button" class="btn" (click)="eliminarPlan(pago)">
+                <i class="icon ion-md-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator
+                [rowsOnPageSet]="[5, 10, 25]"
+              ></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-dark" (click)="agregarPlan()">Agregar</button>
+  </div>
+</div>
