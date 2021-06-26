@@ -2,7 +2,7 @@ export class Plan {
     _id: string;
     nombre: string;
     costo: number;
-    detalle: string;
+    detalles: string;
     frecuencia: number;
 
     constructor(){

@@ -10,7 +10,7 @@
         class="form-control w-50 mb-3"
         id="nombre"
         name="nombre"
-        [(ngModel)]="plan.costo"
+        [(ngModel)]="plan.nombre"
         #nombre="ngModel"
         required
       />
@@ -45,7 +45,7 @@
         placeholder="Ingrese detalle del plan"
         id="detalle"
         name="plan"
-        [(ngModel)]="plan.detalle"
+        [(ngModel)]="plan.detalles"
         #detalle="ngModel"
         required
       ></textarea>
@@ -80,8 +80,18 @@
           class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="agregarPlan(planForm)"
           [disabled]="planForm.invalid"
+          *ngIf="!mostrar_boton"
         >
           Guardar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="modificarPlan()"
+          [disabled]="planForm.invalid"
+          *ngIf="mostrar_boton"
+        >
+          Modificar
         </button>
         <button
           type="submit"

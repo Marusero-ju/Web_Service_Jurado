@@ -9,13 +9,15 @@ import { PlanFormComponent } from './components/plan/plan-form/plan-form.compone
 import { PlanComponent } from './components/plan/plan.component';
 
 const routes: Routes = [
+  
   {path: 'home', component: HomeComponent},
   {path: 'alumno-form', component: AlumnoFormComponent},
   {path: 'pago-table', component: PagoComponent},
   {path: 'pago-form', component: PagoFormComponent},
   {path: 'login', component: LoginComponent},
   {path: 'plan-table', component: PlanComponent},
-  {path: 'plan-form', component: PlanFormComponent}
+  {path: 'plan-form', component: PlanFormComponent},
+  {path: 'plan-form/:plan', component: PlanFormComponent}
   
 ];
 
