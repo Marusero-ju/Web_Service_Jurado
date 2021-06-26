@@ -7,9 +7,10 @@ import { PagoComponent } from './components/pago/pago.component';
 import { LoginComponent } from './components/login/login.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { PlanComponent } from './components/plan/plan.component';
+import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 
 const routes: Routes = [
-  
+
   {path: 'home', component: HomeComponent},
   {path: 'alumno-form', component: AlumnoFormComponent},
   {path: 'pago-table', component: PagoComponent},
@@ -17,8 +18,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'plan-table', component: PlanComponent},
   {path: 'plan-form', component: PlanFormComponent},
-  {path: 'plan-form/:plan', component: PlanFormComponent}
-  
+  {path: 'plan-form/:plan', component: PlanFormComponent},
+  {path: 'asistencia-form', component: AsistenciaFormComponent},
+
 ];
 
 @NgModule({
