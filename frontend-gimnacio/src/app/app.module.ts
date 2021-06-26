@@ -23,7 +23,6 @@ import { LoginComponent } from './components/login/login.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

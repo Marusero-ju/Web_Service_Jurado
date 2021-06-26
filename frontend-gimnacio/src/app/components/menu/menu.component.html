@@ -1,14 +1,34 @@
 <div class="sidebar-container">
   <div class="logo">
     <a>
+      <img class="logo-img" src="../../../assets/images/logo2.png" alt="">
       <h3>GYM - Pepito</h3>
     </a>
   </div>
   <div class="menu">
     <!--Profesor o Administrador-->
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
-      ><i class="icon ion-md-person"></i> Inscribir Alumno</a
-    >
+    <div class="dropend">
+      <a
+        class="nav-link d-block dropdown-toggle"
+        href=""
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="icon ion-md-person"></i> Alumnos</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['alumno-form']"
+            ><i class="icon ion-md-person"></i> Inscribir Alumno</a
+          >
+        </li>
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['pago-form']"
+            ><i class="icon ion-md-clipboard"></i> Ver Asistencia</a
+          >
+        </li>
+      </ul>
+    </div>
+
     <div class="dropend">
       <a
         class="nav-link d-block dropdown-toggle"
