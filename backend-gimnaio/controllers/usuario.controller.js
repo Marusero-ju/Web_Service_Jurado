@@ -21,6 +21,7 @@ usuarioCtrl.createUsuario = async (req, res)=>{
  'status': '0',
  'msg': 'Error procesando operacion.'
  })
+ console.log(error)
  }
 }
 
