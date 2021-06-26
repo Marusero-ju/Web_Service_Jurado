@@ -34,6 +34,22 @@
     <a class="nav-link d-block" [routerLink]="['alumno-form']"
       ><i class="icon ion-md-walk"></i> Asignar Rutina</a
     >
+    <div class="dropend">
+      <a
+        class="nav-link d-block dropdown-toggle"
+        href=""
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="icon ion-md-laptop"></i> Planes</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['plan-table']"
+            ><i class="icon ion-md-eye"></i> Ver Planes</a
+          >
+        </li>
+      </ul>
+    </div>
     <a class="nav-link d-block" [routerLink]="['alumno-form']"
       ><i class="icon ion-md-podium"></i> Estadísticas</a
     >

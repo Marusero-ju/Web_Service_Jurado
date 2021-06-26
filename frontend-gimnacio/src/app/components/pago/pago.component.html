@@ -35,7 +35,11 @@
         <tbody>
           <tr *ngFor="let pago of mf.data">
             <td class="button">
-              <button type="button" class="btn" (click)="seleccionarPago(pago)">
+              <button
+                type="button"
+                class="btn button-modificar"
+                (click)="seleccionarPago(pago)"
+              >
                 <i class="icon ion-md-create"></i>
               </button>
             </td>
@@ -174,17 +178,18 @@
         [ngModelOptions]="{ standalone: true }"
       />
 
-      <div class="d-flex justify-content-evenly">
+      <div class="row">
         <button
           type="submit"
-          class="btn btn-dark col-3 mt-3 mx-auto"
+          class="btn btn-dark col-3 col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="modificarPago(pagoForm)"
+          [disabled]="pagoForm.invalid"
         >
           Modificar
         </button>
         <button
           type="button"
-          class="btn btn-dark col-3 mt-3 mx-auto"
+          class="btn btn-dark col-3 col-xs-3 col-md-3 mt-3 mx-auto"
           (click)="cancelar(pagoForm)"
         >
           Cancelar
