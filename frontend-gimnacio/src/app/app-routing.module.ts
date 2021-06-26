@@ -8,10 +8,12 @@ import { LoginComponent } from './components/login/login.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
+import { AlumnoComponent } from './components/alumno/alumno.component';
 
 const routes: Routes = [
 
   {path: 'home', component: HomeComponent},
+  {path: 'alumno-table', component: AlumnoComponent},
   {path: 'alumno-form', component: AlumnoFormComponent},
   {path: 'pago-table', component: PagoComponent},
   {path: 'pago-form', component: PagoFormComponent},

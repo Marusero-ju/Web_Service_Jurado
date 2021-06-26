@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Plan } from 'src/app/models/plan';
@@ -16,15 +16,30 @@ export class AlumnoFormComponent implements OnInit {
 
   alumno: Alumno;
   planes: Array<Plan>;
+  mostrar_boton: boolean;
 
   constructor(private alumnoService: AlumnoService,
               private planesService: PlanService,
               private toastr: ToastrService,
-              private router: Router) { }
+              private router: Router,
+              private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.alumno = new Alumno();
     this.cargarPlanes();
+    // Object.assign(vAlumno,element);
+
+    if(this.rutaActiva.params['value']._id === undefined){
+      this.mostrar_boton = false;  
+    }else{
+      this.mostrar_boton = true;
+      console.log("ALUMNOSsss",this.rutaActiva.params)
+      // Object.assign(this.alumno,this.rutaActiva.params['value']);
+
+      // this.alumno.plan = this.planes.find(a=>(a._id == this.rutaActiva.params['value'].plan._id));
+      this.cargarAlumno(this.rutaActiva.params['value']._id);
+      
+    }
   }
 
   cargarPlanes():void {
@@ -84,7 +99,7 @@ export class AlumnoFormComponent implements OnInit {
       result=>{
         if(result.status == "1"){
           this.toastr.success(result.msg);
-          this.router.navigate(['home']);
+          this.router.navigate(['alumno-table']);
         }else{
 
         }
@@ -97,12 +112,12 @@ export class AlumnoFormComponent implements OnInit {
   }
 
   limpiarFormulario(form: NgForm):void{
-    form.reset();
     this.alumno = new Alumno();
+    form.reset();
   }
 
   cancelar(){
-    this.router.navigate(['home']);
+    this.router.navigate(['alumno-table']);
   }
 
 }
