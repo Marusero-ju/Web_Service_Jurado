@@ -16,7 +16,6 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'plan-table', component: PlanComponent},
   {path: 'plan-form', component: PlanFormComponent}
-  
 ];
 
 @NgModule({
