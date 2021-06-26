@@ -1,1 +1,118 @@
-<p>asistencia works!</p>
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Registro de Asistencia</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-hover table-bordered"
+        [mfData]="asistencias"
+        #mf="mfDataTable"
+        [mfRowsOnPage]="5"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Modificar</th>
+            <th scope="col">
+              <mfDefaultSorter by="alumno.apellido">Alumno</mfDefaultSorter>
+            </th>
+            <th scope="col">
+              <mfDefaultSorter by="fecha_pago">Fecha del dia</mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asistencia of mf.data">
+            <td class="button">
+              <button
+                type="button"
+                class="btn button-modificar"
+                (click)="seleccionarAsistencia(asistencia)"
+              >
+                <i class="icon ion-md-create"></i>
+              </button>
+            </td>
+            <td>{{ asistencia.alumno.apellido }}</td>
+            <td>{{ asistencia.fecha | date: "dd/MM/yyyy" }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator
+                [rowsOnPageSet]="[5, 10, 25]"
+              ></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mostrar_asistencia" class="card text-center row">
+  <div class="card-header">
+    <h3>Modificar Asistencia</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-alumno row" #asistenciaForm="ngForm">
+
+      <label for="fecha" class="form-label col-4 mb-3">Fecha de Inicio</label>
+      <input
+        type="date"
+        class="form-control w-50 mb-3"
+        id="fecha"
+        name="fecha"
+        [(ngModel)]="asistencia.fecha"
+        #fecha="ngModel"
+        required
+      />
+      <div
+        *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="alumno"
+        name="alumno"
+        [(ngModel)]="asistencia.alumno"
+        #alumno="ngModel"
+        required
+      >
+        <option *ngFor="let alumno of alumnos" [ngValue]="alumno">
+          {{ alumno.apellido }}, {{ alumno.nombre }} - {{ alumno.dni }}
+        </option>
+      </select>
+      <div
+        *ngIf="alumno.invalid && (alumno.dirty || alumno.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <div class="row">
+        <button
+          type="submit"
+          class="btn btn-dark col-3 col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="modificarAsistencia(asistenciaForm)"
+          [disabled]="asistenciaForm.invalid"
+        >
+          Modificar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-3 col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="cancelar(asistenciaForm)"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
