@@ -63,7 +63,8 @@
         class="form-control w-50 mb-3"
         id="fechanacimiento"
         name="fechaNacimiento"
-        [(ngModel)]="alumno.fecha_nacimiento"
+        [ngModel]="alumno.fecha_nacimiento | date: 'yyyy-MM-dd'"
+        (ngModelChange)="alumno.fecha_nacimiento = $event"
         required
         #fechaNacimiento="ngModel"
       />
@@ -136,7 +137,8 @@
         class="form-control w-50 mb-3"
         id="fechainicio"
         name="fechaInicio"
-        [(ngModel)]="alumno.fecha_inicio"
+        [ngModel]="alumno.fecha_inicio | date: 'yyyy-MM-dd'"
+        (ngModelChange)="alumno.fecha_inicio = $event"
         required
         #fechaInicio="ngModel"
       />
@@ -171,22 +173,32 @@
 
       <button
         type="submit"
-        class="btn btn-primary col-3 mt-3 mx-auto"
+        class="btn btn-dark col-3 mt-3 mx-auto"
         (click)="agregarAlumno(alumnoForm)"
         [disabled]="alumnoForm.invalid"
+        *ngIf="!mostrar_boton"
       >
         Registrar
       </button>
       <button
+        type="submit"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="modificarAlumno(alumnoForm)"
+        [disabled]="alumnoForm.invalid"
+        *ngIf="mostrar_boton"
+      >
+        Modificar
+      </button>
+      <button
         type="button"
-        class="btn btn-primary col-3 mt-3 mx-auto"
+        class="btn btn-dark col-3 mt-3 mx-auto"
         (click)="limpiarFormulario(alumnoForm)"
       >
         Limpiar
       </button>
       <button
         type="button"
-        class="btn btn-primary col-3 mt-3 mx-auto"
+        class="btn btn-dark col-3 mt-3 mx-auto"
         (click)="cancelar()"
       >
         Cancelar

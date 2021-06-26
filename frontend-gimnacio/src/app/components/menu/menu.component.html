@@ -6,9 +6,28 @@
   </div>
   <div class="menu">
     <!--Profesor o Administrador-->
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
-      ><i class="icon ion-md-person"></i> Inscribir Alumno</a
-    >
+    <div class="dropend">
+      <a
+        class="nav-link d-block dropdown-toggle"
+        href=""
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="icon ion-md-person"></i> Alumnos</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['alumno-table']"
+            ><i class="icon ion-md-people"></i> Ver Alumnos</a
+          >
+        </li>
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['alumno-form']"
+            ><i class="icon ion-md-person-add"></i> Inscribir Alumno</a
+          >
+        </li>
+      </ul>
+    </div>
+
     <div class="dropend">
       <a
         class="nav-link d-block dropdown-toggle"
@@ -62,7 +81,7 @@
       ><i class="icon ion-md-grid"></i> Asistencia</a
     >
     <a class="nav-link d-block" [routerLink]="['alumno-form']"
-      ><i class="icon ion-md-fitness"></i> Opción 2</a
+      ><i class="icon ion-md-fitness"></i> Ver Rutinas</a
     >
     <a class="nav-link d-block" [routerLink]="['alumno-form']"
       ><i class="icon ion-md-pricetags"></i> Pago de Cuotas</a
