@@ -23,7 +23,7 @@
             </ul>
 
             <div>
-              <a *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']">(Login)</a>
+              <a id="iniciar" *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']"> <i class="icon ion-md-contact"></i> Login</a>
               <a *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
               {{loginService.userLogged()}} (logout)
               </a>
