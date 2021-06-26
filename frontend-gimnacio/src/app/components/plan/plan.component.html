@@ -31,16 +31,16 @@
         <tbody>
           <tr *ngFor="let plan of mf.data">
             <td class="button">
-              <button type="button" class="btn" (click)="seleccionarPlan(pago)">
+              <button type="button" class="btn" (click)="seleccionarPlan(plan)">
                 <i class="icon ion-md-create"></i>
               </button>
             </td>
             <td>{{ plan.nombre }}</td>
             <td>${{ plan.costo }}</td>
-            <td>{{ plan.detalle }}</td>
+            <td>{{ plan.detalles }}</td>
             <td>{{ plan.frecuencia }}</td>
             <td class="button">
-              <button type="button" class="btn" (click)="eliminarPlan(pago)">
+              <button type="button" class="btn" (click)="eliminarPlan(plan)">
                 <i class="icon ion-md-trash"></i>
               </button>
             </td>
