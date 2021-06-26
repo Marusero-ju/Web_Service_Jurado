@@ -1,0 +1,11 @@
+textarea {
+  resize: none;
+}
+
+.card-body {
+  display: block;
+  text-align: center;
+}
+.form-alumno {
+  margin-left: 20%;
+}

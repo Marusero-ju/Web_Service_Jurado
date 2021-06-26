@@ -1,0 +1,113 @@
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Agregar Plan</h3>
+  </div>
+  <div class="card-body row">
+    <form class="form-alumno col-8 row" #planForm="ngForm">
+      <label for="nombre" class="form-label col-4 mb-3">Nombre</label>
+      <input
+        type="text"
+        class="form-control w-50 mb-3"
+        id="nombre"
+        name="nombre"
+        [(ngModel)]="plan.nombre"
+        #nombre="ngModel"
+        required
+      />
+      <div
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="costo" class="form-label col-4 mb-3">Costo</label>
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="costo"
+        name="costo"
+        [(ngModel)]="plan.costo"
+        #costo="ngModel"
+        required
+      />
+      <div
+        *ngIf="costo.invalid && (costo.dirty || costo.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="detalle" class="form-label col-4 mb-3">Detalle</label>
+
+      <textarea
+        class="form-control w-50 mb-3"
+        placeholder="Ingrese detalle del plan"
+        id="detalle"
+        name="plan"
+        [(ngModel)]="plan.detalles"
+        #detalle="ngModel"
+        required
+      ></textarea>
+
+      <div
+        *ngIf="detalle.invalid && (detalle.dirty || detalle.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="frecuencia" class="form-label col-4 mb-3">Frecuencia</label>
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="frecuencia"
+        name="frecuencia"
+        [(ngModel)]="plan.frecuencia"
+        #frecuencia="ngModel"
+        required
+      />
+      <div
+        *ngIf="frecuencia.invalid && (frecuencia.dirty || frecuencia.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <div class="row">
+        <button
+          type="submit"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="agregarPlan(planForm)"
+          [disabled]="planForm.invalid"
+          *ngIf="!mostrar_boton"
+        >
+          Guardar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="modificarPlan()"
+          [disabled]="planForm.invalid"
+          *ngIf="mostrar_boton"
+        >
+          Modificar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="limpiarFormulario(planForm)"
+        >
+          Limpiar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-xs-3 col-md-3 mt-3 mx-auto"
+          (click)="cancelar()"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

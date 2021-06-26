@@ -78,7 +78,7 @@ export class AlumnoService {
     return this._http.put(this.urlBase+'alumno/'+alumno._id, body, httpOptions);
   }
 
-  deletePasaje(alumno: Alumno):Observable<any>{
+  deleteAlumno(alumno: Alumno):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
         

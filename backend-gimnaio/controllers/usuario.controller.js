@@ -18,7 +18,6 @@ usuarioCtrl.createUsuario = async (req, res)=>{
  })
  } catch (error) {
  res.json({
-
  'status': '0',
  'msg': 'Error procesando operacion.'
  })

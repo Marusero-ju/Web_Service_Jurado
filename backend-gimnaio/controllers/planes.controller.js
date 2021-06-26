@@ -4,7 +4,7 @@ planesCtrl.getPlanes = async (req, res) => {
  var planes = await Planes.find();
  res.json(planes);
 }
-planesCtrl.createPlanes = async (req, res) => {
+planesCtrl.createPlan = async (req, res) => {
     var planes = new Planes(req.body);
     console.log("Sector", planes);
     try {
@@ -25,7 +25,7 @@ planesCtrl.getPlan = async (req, res) => {
     const planes = await Planes.findById(req.params.id);
     res.json(planes);
 }
-planesCtrl.editPlanes = async (req, res) => {
+planesCtrl.editPlan = async (req, res) => {
     const vplanes = new Planes(req.body);
     try {
         await Planes.updateOne({_id: req.body._id}, vplanes);
@@ -40,7 +40,7 @@ planesCtrl.editPlanes = async (req, res) => {
         })
     }
 }
-planesCtrl.deletePlanes = async (req, res)=>{
+planesCtrl.deletePlan = async (req, res)=>{
     try {
         await Planes.deleteOne({_id: req.params.id});
             res.json({
