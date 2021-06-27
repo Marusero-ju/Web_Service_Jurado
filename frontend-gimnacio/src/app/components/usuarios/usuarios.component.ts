@@ -1,36 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Alumno } from 'src/app/models/alumno';
+import { Usuario } from 'src/app/models/usuario';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-alumno',
-  templateUrl: './alumno.component.html',
-  styleUrls: ['./alumno.component.css']
+  selector: 'app-usuarios',
+  templateUrl: './usuarios.component.html',
+  styleUrls: ['./usuarios.component.css']
 })
-export class AlumnoComponent implements OnInit {
+export class UsuariosComponent implements OnInit {
 
-  alumno: Alumno;
-  alumnos: Array<Alumno>;
+  usuarios: Array<Usuario>;
+  usuario: Usuario;
 
   constructor(private toastr: ToastrService,
-    private router: Router,
-    private alumnoService: AlumnoService) { }
+              private router: Router,
+              private usuarioService: UsuarioService,
+              private alumnoService: AlumnoService) { }
 
   ngOnInit(): void {
-    this.cargarAlumnos();
+    this.cargarUsuarios();
   }
 
-  cargarAlumnos(){
-    this.alumnos = new Array<Alumno>();
-    this.alumnoService.getAlumnos().subscribe(
+  cargarUsuarios(){
+    this.usuarios = new Array<Usuario>();
+    this.usuarioService.getUsuarios().subscribe(
       result => {
         result.forEach(element => {
-          let vAlumno= new Alumno();
-          Object.assign(vAlumno,element);
-          this.alumnos.push(vAlumno);
+          let vUsuario= new Usuario();
+          Object.assign(vUsuario,element);
+          this.usuarios.push(vUsuario);
         }
         )},
       error=>{
@@ -40,13 +42,13 @@ export class AlumnoComponent implements OnInit {
     );
   }
 
-  seleccionarAlumno(alumno: Alumno){
-    console.log("Alumno ", alumno)
-    this.alumnoService.getAlumno(alumno._id).subscribe(
+  seleccionarUsuario(usuario: Usuario){
+    console.log("Usuario ", usuario)
+    this.usuarioService.getUsuario(usuario._id).subscribe(
       result =>{
-        this.alumno = result;
+        this.usuario = result;
         this.toastr.success('OK');
-        this.router.navigate(['alumno-form',this.alumno])
+        this.router.navigate(['usuario-form',this.usuario])
       },
       error => {
         this.toastr.error(error);
@@ -54,20 +56,20 @@ export class AlumnoComponent implements OnInit {
     );
   }
 
-  eliminarAlumno(alumno: Alumno):void{
+  eliminarUsuario(usuario: Usuario):void{
     Swal.fire({
       title: 'Estás seguro?',
-      text: 'Realmente desea eliminar al alumno?',
+      text: 'Realmente desea eliminar al usuario?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, borrar ahora!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.alumnoService.deleteAlumno(alumno).subscribe(
+        this.usuarioService.deleteUsuario(usuario).subscribe(
           result=>{
             console.log(result.msg);
-            this.cargarAlumnos();
+            this.cargarUsuarios();
             this.toastr.success(result.msg);
           },
           error=>{
@@ -77,14 +79,14 @@ export class AlumnoComponent implements OnInit {
         );
         Swal.fire(
           'Borrado!',
-          'El alumno se ha borrado.',
+          'El usuario se ha borrado.',
           'success'
         )
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelado',
-          'No se borrado al alumno',
+          'No se borrado al usuario',
           'error'
         )
       }

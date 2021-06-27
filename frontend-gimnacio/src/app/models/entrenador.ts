@@ -1,6 +1,6 @@
-import { User } from "./user";
+import { Usuario } from "./usuario";
 
-export class Entrenador extends User{
+export class Entrenador extends Usuario{
     _id: string;
     apellido: string;
     nombre: string;
@@ -10,8 +10,9 @@ export class Entrenador extends User{
     domicilio: string;
     email: string;
 
-    constructor(username?:string, password?:string, roles?:[], activo?:boolean){
-        super(username, password, roles, activo);
+    constructor(username?:string, password?:string, nombres?:string,
+        apellido?:string, perfil?:string){
+        super(username, password, nombres, apellido, perfil);
     }
     
 }
