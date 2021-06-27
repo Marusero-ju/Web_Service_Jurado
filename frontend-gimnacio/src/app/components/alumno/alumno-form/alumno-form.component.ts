@@ -81,7 +81,7 @@ export class AlumnoFormComponent implements OnInit {
         if(result.status == "1"){
           this.toastr.success(result.msg);
           form.reset
-          this.router.navigate(['home']);
+          this.router.navigate(['alumno-table']);
         }else{
           this.toastr.error(result.msg);
           form.reset

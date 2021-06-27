@@ -6,10 +6,35 @@
     </a>
   </div>
   <div class="menu">
-    <!--Profesor o Administrador-->
+    <!--Administrador-->
     <div
       class="dropend"
       *ngIf="loginService.perfilLogged() === 'administrador'"
+    >
+      <a
+        class="nav-link d-block dropdown-toggle"
+        href=""
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="icon ion-md-person"></i> Usuarios</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['usuario-table']"
+            ><i class="icon ion-md-people"></i> Ver Usuarios</a
+          >
+        </li>
+        <li>
+          <a class="text-menu dropdown-item" [routerLink]="['usuario-form']"
+            ><i class="icon ion-md-person-add"></i> Nuevo Usuario</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--Profesor o Administrador-->
+    <div
+      class="dropend"
+      *ngIf="loginService.perfilLogged() === 'administrador' || 'entrenador'"
     >
       <a
         class="nav-link d-block dropdown-toggle"
@@ -44,7 +69,7 @@
 
     <div
       class="dropend"
-      *ngIf="loginService.perfilLogged() === 'administrador'"
+      *ngIf="loginService.perfilLogged() === 'administrador' || 'entrenador'"
     >
       <a
         class="nav-link d-block dropdown-toggle"
@@ -70,7 +95,7 @@
     <a
       class="nav-link d-block"
       [routerLink]="['alumno-form']"
-      *ngIf="loginService.perfilLogged() === 'administrador'"
+      *ngIf="loginService.perfilLogged() === 'administrador' || 'entrenador'"
       ><i class="icon ion-md-walk"></i> Asignar Rutina</a
     >
     <div
@@ -95,13 +120,13 @@
     <a
       class="nav-link d-block"
       [routerLink]="['alumno-form']"
-      *ngIf="loginService.perfilLogged() === 'administrador'"
+      *ngIf="loginService.perfilLogged() === 'administrador' || 'entrenador'"
       ><i class="icon ion-md-podium"></i> Estadísticas</a
     >
     <a
       class="nav-link d-block"
       [routerLink]="['alumno-form']"
-      *ngIf="loginService.perfilLogged() === 'administrador'"
+      *ngIf="loginService.perfilLogged() === 'administrador' || 'entrenador'"
       ><i class="icon ion-md-body"></i> Dieta</a
     >
 
