@@ -9,10 +9,11 @@ import { PlanFormComponent } from './components/plan/plan-form/plan-form.compone
 import { PlanComponent } from './components/plan/plan.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 import { AlumnoComponent } from './components/alumno/alumno.component';
+import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 
 const routes: Routes = [
-
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'alumno-table', component: AlumnoComponent},
   {path: 'alumno-form', component: AlumnoFormComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'plan-form', component: PlanFormComponent},
   {path: 'plan-form/:plan', component: PlanFormComponent},
   {path: 'asistencia-form', component: AsistenciaFormComponent},
+  {path: 'entrenamiento', component: CardentrenamientoComponent},
   {path: 'asistencia', component: AsistenciaComponent},
 
 ];

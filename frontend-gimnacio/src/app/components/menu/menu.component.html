@@ -2,12 +2,15 @@
   <div class="logo">
     <a>
       <img class="logo-img" src="../../../assets/images/logo2.png" alt="" />
-      <h3>GYM - Pepito</h3>
+      <h3>Power GYM</h3>
     </a>
   </div>
   <div class="menu">
     <!--Profesor o Administrador-->
-    <div class="dropend">
+    <div
+      class="dropend"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
+    >
       <a
         class="nav-link d-block dropdown-toggle"
         href=""
@@ -39,7 +42,10 @@
       </ul>
     </div>
 
-    <div class="dropend">
+    <div
+      class="dropend"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
+    >
       <a
         class="nav-link d-block dropdown-toggle"
         href=""
@@ -61,10 +67,16 @@
       </ul>
     </div>
 
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
       ><i class="icon ion-md-walk"></i> Asignar Rutina</a
     >
-    <div class="dropend">
+    <div
+      class="dropend"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
+    >
       <a
         class="nav-link d-block dropdown-toggle"
         href=""
@@ -80,21 +92,36 @@
         </li>
       </ul>
     </div>
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
       ><i class="icon ion-md-podium"></i> Estadísticas</a
     >
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'administrador'"
       ><i class="icon ion-md-body"></i> Dieta</a
     >
 
     <!--Alumno-->
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'alumno'"
       ><i class="icon ion-md-grid"></i> Asistencia</a
     >
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'alumno'"
       ><i class="icon ion-md-fitness"></i> Ver Rutinas</a
     >
-    <a class="nav-link d-block" [routerLink]="['alumno-form']"
+    <a
+      class="nav-link d-block"
+      [routerLink]="['alumno-form']"
+      *ngIf="loginService.perfilLogged() === 'alumno'"
       ><i class="icon ion-md-pricetags"></i> Pago de Cuotas</a
     >
   </div>

@@ -24,6 +24,8 @@ import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
+import { HeaderdefaultComponent } from './components/layout/headerdefault/headerdefault.component';
+import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AsistenciaFormComponent } from './components/asistencia-form/asistencia
     PlanComponent,
     PlanFormComponent,
     AsistenciaComponent,
-    AsistenciaFormComponent
+    AsistenciaFormComponent,
+    HeaderdefaultComponent,
+    CardentrenamientoComponent
   ],
   imports: [
     BrowserModule,

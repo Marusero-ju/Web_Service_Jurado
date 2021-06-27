@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-headerdefault',
+  templateUrl: './headerdefault.component.html',
+  styleUrls: ['./headerdefault.component.css']
 })
-export class MenuComponent implements OnInit {
+export class HeaderdefaultComponent implements OnInit {
 
   constructor(public loginService: LoginService) { }
 

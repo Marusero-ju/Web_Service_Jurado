@@ -1,29 +1,74 @@
 <div class="container">
-    <!--tarjeta-->
-    <div class="card">
-        <div class="card-header text-center text-white">
-          Bienvenido
+  <!--tarjeta-->
+  <div class="card">
+    <div class="card-header text-center text-white">Bienvenido</div>
+
+    <div class="card-body">
+      <!--formulario-->
+      <form class="text-center" name="form" #formLogin="ngForm">
+        <div class="form-group">
+          <label for="username"
+            ><i class="icon ion-md-person"></i> Username</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Usuario"
+            [(ngModel)]="userform.username"
+          />
+        </div>
+        <br />
+        <div class="form-group" *ngIf="!mostrar_password">
+          <label for="password"
+            ><i class="icon ion-md-lock"></i> Password</label
+          >
+          <div class="d-flex position-relative">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Contraseña"
+              [(ngModel)]="userform.password"
+            />
+            <button
+              class="btn position-absolute btn-password"
+              type="submit"
+              (click)="mostrarPassword()"
+            >
+              <i class="icon ion-md-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="mostrar_password">
+          <label for="password"
+            ><i class="icon ion-md-lock"></i> Password</label
+          >
+          <div class="d-flex position-relative">
+            <input
+              type="text"
+              class="form-control"
+              name="password"
+              autocomplete="off"
+              placeholder="Contraseña"
+              [(ngModel)]="userform.password"
+            />
+            <button
+              class="btn position-absolute btn-password"
+              type="submit"
+              (click)="mostrarPassword()"
+            >
+              <i class="icon ion-md-eye-off"></i>
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <button class="btn btn-dark" (click)="login(formLogin)">Login</button>
         </div>
 
-        <div class="card-body">
-        <!--formulario-->
-          <form class="text-center" name="form">
-            <div class="form-group">
-            <label for="username"><i class="icon ion-md-person"></i> Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Usuario" [(ngModel)]="userform.username" />
-            </div>
-            <br>
-            <div class="form-group">
-            <label for="password"><i class="icon ion-md-lock"></i> Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" [(ngModel)]="userform.password" />
-            </div>
-            <br>
-            <div class="form-group">
-            <button class="btn btn-dark" (click)="login()">Login</button>
-            </div>
-
-            <div class="alert-danger">{{msglogin}}</div>
-          </form>
-        </div>
+        <div class="alert-danger mt-3">{{ msglogin }}</div>
+      </form>
     </div>
+  </div>
 </div>

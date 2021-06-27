@@ -7,6 +7,14 @@
   width: 90%;
 }
 
+.navbar {
+  background-color: rgb(177, 177, 176);
+}
+
 #iniciar {
   text-decoration-line: none;
+}
+
+.logout {
+  font-weight: bold;
 }
