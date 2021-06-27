@@ -2,7 +2,7 @@ const Asistencia = require('../models/asistencia');
 const asistenciaCtrl = {}
 
 asistenciaCtrl.getAsistencias = async (req, res) => {
-    var asistencias = await Asistencia.find();
+    var asistencias = await Asistencia.find().populate("alumno");
     res.json(asistencias);
 }
 
@@ -24,7 +24,7 @@ asistenciaCtrl.createAsistencia = async (req, res) => {
 }
 
 asistenciaCtrl.getAsistencia = async (req, res) => {
-    const asistencia = await Asistencia.findById(req.params.id);
+    const asistencia = await Asistencia.findById(req.params.id).populate("alumno");
     res.json(asistencia);
 }
 
