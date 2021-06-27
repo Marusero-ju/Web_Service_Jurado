@@ -10,6 +10,7 @@ import { PlanComponent } from './components/plan/plan.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
+import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'plan-form/:plan', component: PlanFormComponent},
   {path: 'asistencia-form', component: AsistenciaFormComponent},
   {path: 'entrenamiento', component: CardentrenamientoComponent},
+  {path: 'asistencia', component: AsistenciaComponent},
 
 ];
 
