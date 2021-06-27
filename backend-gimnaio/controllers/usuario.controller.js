@@ -25,6 +25,42 @@ usuarioCtrl.createUsuario = async (req, res)=>{
     }
 }
 
+usuarioCtrl.getUsuario = async (req, res) => {
+    const usuario = await Usuario.findById(req.params.id);
+    res.json(usuario);
+}
+
+usuarioCtrl.editUsuario = async (req, res) => {
+    const vusuario = new Usuario(req.body);
+    try {
+        await Usuario.updateOne({_id: req.body._id}, vusuario);
+        res.json({
+            'status': '1',
+            'msg': 'Usuario actualizado'
+        })
+    } catch (error) {
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        })
+    }
+}
+
+usuarioCtrl.deleteUsuario = async (req, res)=>{
+    try {
+        await Usuario.deleteOne({_id: req.params.id});
+            res.json({
+            status: '1',
+            msg: 'Usuario borrado'
+        })
+    } catch (error) {
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        })
+    }
+}
+
 
 usuarioCtrl.loginUsuario = async (req, res)=>{
     //en req.body se espera que vengan las credenciales de login
