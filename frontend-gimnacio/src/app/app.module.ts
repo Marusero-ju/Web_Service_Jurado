@@ -28,6 +28,7 @@ import { HeaderdefaultComponent } from './components/layout/headerdefault/header
 import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { FormImpComponent } from './components/form-imp/form-imp.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario
     HeaderdefaultComponent,
     CardentrenamientoComponent,
     UsuariosComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    FormImpComponent
   ],
   imports: [
     BrowserModule,
