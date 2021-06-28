@@ -5,6 +5,7 @@ import { Alumno } from 'src/app/models/alumno';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
+import * as printJS from 'print-js';
 
 @Component({
   selector: 'app-alumno',
@@ -15,6 +16,7 @@ export class AlumnoComponent implements OnInit {
 
   alumno: Alumno;
   alumnos: Array<Alumno>;
+  alumnoJSON: JSON;
 
   constructor(private toastr: ToastrService,
     private router: Router,
@@ -34,10 +36,33 @@ export class AlumnoComponent implements OnInit {
     this.cargarAlumnos();
   }
 
+  imprimirTabla(){
+    printJS({
+      printable: this.alumnoJSON,
+      properties: [
+        { field:'nombre',displayName:'Nombre'},
+        { field:'apellido',displayName:'Apellido'},
+        { field:'dni',displayName:'DNI'},
+        { field:'fecha_nacimiento',displayName:'Fecha de Nacimiento'},
+        { field:'celular',displayName:'Celular'},
+        { field:'domicilio',displayName:'Domicilio'},
+        { field:'email',displayName:'Email'},
+        { field:'fecha_inicio',displayName:'Fecha de Inicio'},
+        { field:'plan.nombre',displayName:'Plan'}],
+      header: '<h2 class="titulo">Tabla de alumnos registrados</h2>',
+      style: '.titulo{font: arial bold 30px; text-align: center;}',
+      gridHeaderStyle: 'border: 1px solid black;',
+      gridStyle: 'border: 1px solid black; text-align: center;',
+      documentTitle: 'Registro de alumnos',
+      type: 'json'
+    })
+  }
+
   cargarAlumnos(){
     this.alumnos = new Array<Alumno>();
     this.alumnoService.getAlumnos().subscribe(
       result => {
+        this.alumnoJSON = result;
         result.forEach(element => {
           let vAlumno= new Alumno();
           Object.assign(vAlumno,element);
@@ -91,7 +116,7 @@ export class AlumnoComponent implements OnInit {
           'El alumno se ha borrado.',
           'success'
         )
-        
+
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelado',
