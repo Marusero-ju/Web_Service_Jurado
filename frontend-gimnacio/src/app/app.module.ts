@@ -22,6 +22,8 @@ import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
+import { RutinaComponent } from './components/rutina/rutina.component';
+import { EjercicioComponent } from './components/rutina/ejercicio/ejercicio.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { PlanFormComponent } from './components/plan/plan-form/plan-form.compone
     PagoFormComponent,
     LoginComponent,
     PlanComponent,
-    PlanFormComponent
+    PlanFormComponent,
+    RutinaComponent,
+    EjercicioComponent
   ],
   imports: [
     BrowserModule,
