@@ -24,6 +24,7 @@ import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
 import { HeaderdefaultComponent } from './components/layout/headerdefault/headerdefault.component';
 import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -50,6 +51,7 @@ import { PublicComponent } from './components/public/public.component';
     PlanFormComponent,
     AsistenciaComponent,
     AsistenciaFormComponent,
+    PruebaComponent
     HeaderdefaultComponent,
     CardentrenamientoComponent,
     UsuariosComponent,
