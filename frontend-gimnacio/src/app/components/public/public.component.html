@@ -8,9 +8,10 @@
       <!--formulario-->
       <form class="col-12">
         <div class="form-group">
-          <label for="my-input" >Texto</label>
-          <input id="my-input" class="form-control" type="text"
-          ="mensaje" name="mensaje">
+          <label for="my-input" >Dejanos tu mensaje y correo nuestro equipo se comunicara en breve</label>
+          <br><br>
+          <textarea class="form-control" for="my-input"
+          [(ngModel)]="mensaje" name="mensaje" cols="30" rows="10"></textarea>
       </div>
       <br>
       <button class="btn btn-dark"

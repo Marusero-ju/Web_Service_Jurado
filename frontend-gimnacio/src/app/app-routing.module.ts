@@ -13,6 +13,7 @@ import { CardentrenamientoComponent } from './components/cardentrenamiento/carde
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { PublicComponent } from './components/public/public.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'asistencia', component: AsistenciaComponent},
   {path: 'usuario-table', component: UsuariosComponent},
   {path: 'usuario-form', component: UsuarioFormComponent},
+  {path: 'posteo', component: PublicComponent},
 
 ];
 

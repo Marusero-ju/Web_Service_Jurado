@@ -1,0 +1,33 @@
+/*estilos del componente PUBLIC*/
+
+/*propiedades de la tarjeta*/
+.card{
+  width: 450px;
+  margin: auto;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 7px;
+}
+
+/*propiedades de texto del formulario*/
+.form-group{
+  color: white;
+}
+
+/*propiedades de hover del boton*/
+button:hover{
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  transition: 0.25s;
+}
+
+/*propiedades de color del boton*/
+button{
+  background: #31384A;
+  color: white;
+  margin-left: 140px;
+}
