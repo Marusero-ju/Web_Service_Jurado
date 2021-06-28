@@ -24,6 +24,7 @@ import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AsistenciaFormComponent } from './components/asistencia-form/asistencia
     PlanComponent,
     PlanFormComponent,
     AsistenciaComponent,
-    AsistenciaFormComponent
+    AsistenciaFormComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
