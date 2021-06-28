@@ -38,6 +38,11 @@ export class AlumnoComponent implements OnInit {
         { field:'email',displayName:'Email'},
         { field:'fecha_inicio',displayName:'Fecha de Inicio'},
         { field:'plan.nombre',displayName:'Plan'}],
+      header: '<h2 class="titulo">Tabla de alumnos registrados</h2>',
+      style: '.titulo{font: arial bold 30px; text-align: center;}',
+      gridHeaderStyle: 'border: 1px solid black;',
+      gridStyle: 'border: 1px solid black; text-align: center;',
+      documentTitle: 'Registro de alumnos',
       type: 'json'
     })
   }
