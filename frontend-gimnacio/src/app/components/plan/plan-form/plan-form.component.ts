@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Plan } from 'src/app/models/plan';
+import { LoginService } from 'src/app/services/login.service';
 import { PlanService } from 'src/app/services/plan.service';
 
 @Component({
@@ -19,11 +20,16 @@ export class PlanFormComponent implements OnInit {
   constructor(private router: Router,
               private planService: PlanService,
               private toastr: ToastrService,
-              private rutaActiva: ActivatedRoute) {
-                // console.log(this.rutaActiva.params['value']._id)
-                // if(this.rutaActiva.params['value']._id === undefined){
-                //   console.log("VACIO")
-                // }
+              private rutaActiva: ActivatedRoute,
+              private loginService: LoginService) {
+                if(this.loginService.userLoggedIn()){ 
+                  //acciones normales de componente 
+                  //acciones normales de componente 
+                } 
+                else { 
+                  alert("Debe validarse e ingresar su usuario y clave"); 
+                  this.router.navigate(['login']); 
+                }
               }
 
   ngOnInit(): void {

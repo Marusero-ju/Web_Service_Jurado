@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +18,17 @@ export class AlumnoComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private router: Router,
-    private alumnoService: AlumnoService) { }
+    private alumnoService: AlumnoService,
+    private loginService: LoginService) { 
+      if(this.loginService.userLoggedIn()){ 
+        //acciones normales de componente 
+        //acciones normales de componente 
+      } 
+      else { 
+        alert("Debe validarse e ingresar su usuario y clave"); 
+        this.router.navigate(['login']); 
+      } 
+    }
 
   ngOnInit(): void {
     this.cargarAlumnos();

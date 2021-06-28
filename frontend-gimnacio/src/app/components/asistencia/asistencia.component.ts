@@ -6,6 +6,7 @@ import { Alumno } from 'src/app/models/alumno';
 import { Asistencia } from 'src/app/models/asistencia';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { AsistenciaService } from 'src/app/services/asistencia.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-asistencia',
@@ -23,7 +24,18 @@ export class AsistenciaComponent implements OnInit {
   constructor(private toastr: ToastrService,
     private router: Router,
     private alumnoService: AlumnoService,
-    private asistenciaService: AsistenciaService) { }
+    private asistenciaService: AsistenciaService,
+    private loginService: LoginService) { 
+      if(this.loginService.userLoggedIn()){ 
+        //acciones normales de componente 
+        //acciones normales de componente 
+      } 
+      else { 
+        alert("Debe validarse e ingresar su usuario y clave"); 
+        this.router.navigate(['login']); 
+      }
+    }
+  
 
   ngOnInit(): void {
     this.cargarAsistencias();

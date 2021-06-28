@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CardEntrenamiento } from 'src/app/models/card-entrenamiento';
 import { CardentrenamientoService } from 'src/app/services/cardentrenamiento.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-cardentrenamiento',
@@ -15,7 +16,17 @@ export class CardentrenamientoComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private router: Router,
-    private cardService: CardentrenamientoService) { }
+    private cardService: CardentrenamientoService,
+    private loginService: LoginService) { 
+      // if(this.loginService.userLoggedIn()){ 
+      //   //acciones normales de componente 
+      //   //acciones normales de componente 
+      // } 
+      // else { 
+      //   alert("Debe validarse e ingresar su usuario y clave"); 
+      //   this.router.navigate(['login']); 
+      // }
+    }
 
   ngOnInit(): void {
     this.cargarCards();

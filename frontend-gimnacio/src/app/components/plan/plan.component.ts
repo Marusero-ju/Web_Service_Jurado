@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Plan } from 'src/app/models/plan';
+import { LoginService } from 'src/app/services/login.service';
 import { PlanService } from 'src/app/services/plan.service';
 import Swal from 'sweetalert2';
 
@@ -17,7 +18,17 @@ export class PlanComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
               private router: Router,
-              private servicePlan: PlanService) { }
+              private servicePlan: PlanService,
+              private loginService: LoginService) { 
+                if(this.loginService.userLoggedIn()){ 
+                  //acciones normales de componente 
+                  //acciones normales de componente 
+                } 
+                else { 
+                  alert("Debe validarse e ingresar su usuario y clave"); 
+                  this.router.navigate(['login']); 
+                }
+              }
 
   ngOnInit(): void {
     this.cargarPlanes();
