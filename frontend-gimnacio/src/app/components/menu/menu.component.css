@@ -1,6 +1,7 @@
 .sidebar-container {
   min-height: 50vw;
   background-color: rgb(88, 85, 85);
+  height: 100%;
 }
 
 .logo {
@@ -14,7 +15,7 @@
   color: white;
 }
 
-.logo-img{
+.logo-img {
   width: 50px;
   height: 50px;
   margin-left: 50px;
@@ -25,6 +26,7 @@
   min-width: 5vw;
   margin-top: 0px;
   padding: 20px;
+  height: auto;
 }
 
 .menu .nav-link {

@@ -1,0 +1,147 @@
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Registrar Usuario</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-usuario row" #usuarioForm="ngForm">
+      <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
+      <select
+        class="form-select w-50 mb-3"
+        name="alumno"
+        id="alumno"
+        [(ngModel)]="alumno"
+        required
+        #alum="ngModel"
+      >
+        <option *ngFor="let alum of alumnos" [ngValue]="alum">
+          {{ alum.apellido }} - DNI: {{ alum.dni }}
+        </option>
+      </select>
+      <div
+        *ngIf="alum.invalid && (alum.dirty || alum.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="username" class="form-label col-4 mb-3">Username</label>
+      <input
+        type="text"
+        class="form-control w-50 mb-3"
+        id="username"
+        name="username"
+        [(ngModel)]="usuario.username"
+        required
+        #username="ngModel"
+      />
+      <div
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="password" class="form-label col-4 mb-3">Password</label>
+      <input
+        type="password"
+        class="form-control w-50 mb-3"
+        id="password"
+        name="password"
+        [(ngModel)]="usuario.password"
+        required
+        #pass="ngModel"
+      />
+      <div
+        *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="repitpassword" class="form-label col-4 mb-3"
+        >Repetir Password</label
+      >
+      <input
+        type="password"
+        class="form-control w-50 mb-3"
+        id="repitpassword"
+        name="repitpassword"
+        [(ngModel)]="password"
+        required
+        #repitpassword="ngModel"
+      />
+      <div
+        *ngIf="
+          repitpassword.invalid &&
+          (repitpassword.dirty || repitpassword.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+      <div
+        *ngIf="
+          (password !== usuario.password || repitpassword.invalid) &&
+          (repitpassword.dirty || repitpassword.touched)
+        "
+        class="text-danger"
+      >
+        * Password no coincide !!!
+      </div>
+
+      <label for="perfil" class="form-label col-4 mb-3">Perfil</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="perfil"
+        name="perfil"
+        [(ngModel)]="usuario.perfil"
+        #perfil="ngModel"
+        required
+      >
+        <option value="entrenador">Entrenador</option>
+        <option value="alumno">Alumno</option>
+      </select>
+      <div
+        *ngIf="perfil.invalid && (perfil.dirty || perfil.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="agregarUsuario(usuarioForm)"
+        [disabled]="usuarioForm.invalid || password !== usuario.password"
+        *ngIf="!mostrar_boton"
+      >
+        Registrar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="modificarUsuario(usuarioForm)"
+        [disabled]="usuarioForm.invalid || password !== usuario.password"
+        *ngIf="mostrar_boton"
+      >
+        Modificar
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="limpiarFormulario(usuarioForm)"
+      >
+        Limpiar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="cancelar()"
+      >
+        Cancelar
+      </button>
+    </form>
+  </div>
+</div>

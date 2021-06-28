@@ -25,6 +25,13 @@ import { PlanFormComponent } from './components/plan/plan-form/plan-form.compone
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
+import { HeaderdefaultComponent } from './components/layout/headerdefault/headerdefault.component';
+import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { FormImpComponent } from './components/form-imp/form-imp.component';
+import { FacebookModule } from 'ngx-fb';
+import { PublicComponent } from './components/public/public.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +52,12 @@ import { PruebaComponent } from './components/prueba/prueba.component';
     AsistenciaComponent,
     AsistenciaFormComponent,
     PruebaComponent
+    HeaderdefaultComponent,
+    CardentrenamientoComponent,
+    UsuariosComponent,
+    UsuarioFormComponent,
+    FormImpComponent,
+    PublicComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +66,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    NgxDataTableModule
+    NgxDataTableModule,
+    FacebookModule.forRoot(),
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

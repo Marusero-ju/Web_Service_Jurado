@@ -6,6 +6,7 @@ import { Alumno } from 'src/app/models/alumno';
 import { Asistencia } from 'src/app/models/asistencia';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { AsistenciaService } from 'src/app/services/asistencia.service';
+import * as printJS from 'print-js';
 
 @Component({
   selector: 'app-asistencia',
@@ -19,6 +20,7 @@ export class AsistenciaComponent implements OnInit {
   mostrar_asistencia: boolean;
   alumno: Alumno;
   alumnos: Array<Alumno>;
+  asistenciaJSON: JSON;
 
   constructor(private toastr: ToastrService,
     private router: Router,
@@ -31,10 +33,27 @@ export class AsistenciaComponent implements OnInit {
     this.cargarAlumnos();
   }
 
+  imprimirTabla(){
+    printJS({
+      printable: this.asistenciaJSON,
+      properties: [
+        { field:'apellido',displayName:'Apellido'},
+        { field:'nombre',displayName:'Nombre'},
+        { field:'fecha',displayName:'Fecha'}],
+      header: '<h2 class="titulo">Tabla de asistencias</h2>',
+      style: '.titulo{font: arial bold 30px; text-align: center;}',
+      gridHeaderStyle: 'border: 1px solid black;',
+      gridStyle: 'border: 1px solid black; text-align: center;',
+      documentTitle: 'Asistencias de alumnos',
+      type: 'json'
+    })
+  }
+
   cargarAlumnos(){
     this.alumnos = new Array<Alumno>();
     this.alumnoService.getAlumnos().subscribe(
       result => {
+        this.asistenciaJSON = result;
         result.forEach(element => {
           let vAlumno= new Alumno();
           Object.assign(vAlumno,element);

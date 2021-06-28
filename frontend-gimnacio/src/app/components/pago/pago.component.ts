@@ -5,6 +5,8 @@ import { Alumno } from 'src/app/models/alumno';
 import { Pago } from 'src/app/models/pago';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { PagoService } from 'src/app/services/pago.service';
+import * as printJS from 'print-js';
+
 @Component({
   selector: 'app-pago',
   templateUrl: './pago.component.html',
@@ -16,6 +18,7 @@ export class PagoComponent implements OnInit {
   pagos: Array<Pago>;
   mostrar_pago: boolean;
   alumnos: Array<Alumno>;
+  pagoJSON: JSON;
 
   constructor(private pagoService: PagoService,
               private toastr: ToastrService,
@@ -28,9 +31,30 @@ export class PagoComponent implements OnInit {
     this.cargarAlumnos();
   }
 
+  imprimirTabla(){
+    printJS({
+      printable: this.pagoJSON,
+      properties: [
+        { field:'apellido',displayName:'Apellido'},
+        { field:'nombre',displayName:'Nombre'},
+        { field:'monto',displayName:'Monto'},
+        { field:'fecha_pago',displayName:'Fecha de Pago'},
+        { field:'fecha_vencimiento',displayName:'Fecha de Vencimiento'},
+        { field:'fecha_nacimiento',displayName:'Fecha de Nacimiento'},
+        { field:'forma_pago',displayName:'Forma de Pago'}],
+      header: '<h2 class="titulo">Tabla de Pagos</h2>',
+      style: '.titulo{font: arial bold 30px; text-align: center;}',
+      gridHeaderStyle: 'border: 1px solid black;',
+      gridStyle: 'border: 1px solid black; text-align: center;',
+      documentTitle: 'Pagos Alumnos',
+      type: 'json'
+    })
+  }
+
   cargarAlumnos(){
     this.alumnoService.getAlumnos().subscribe(
       result=>{
+        this.pagoJSON = result;
         result.forEach(element => {
           let vAlumno= new Alumno();
           Object.assign(vAlumno,element);
@@ -60,7 +84,7 @@ export class PagoComponent implements OnInit {
         console.log(error);
         this.toastr.warning('Error en el server al cargar los Pagos');
       }
-      
+
     )
   }
 
@@ -82,7 +106,7 @@ export class PagoComponent implements OnInit {
   }
 
   modificarPago(form: NgForm){
-    console.log("Pasaje Modificar",this.pago);   
+    console.log("Pasaje Modificar",this.pago);
 
     this.pagoService.updatePago(this.pago).subscribe(
       result=>{
