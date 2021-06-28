@@ -29,6 +29,8 @@ import { CardentrenamientoComponent } from './components/cardentrenamiento/carde
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
 import { FormImpComponent } from './components/form-imp/form-imp.component';
+import { FacebookModule } from 'ngx-fb';
+import { PublicComponent } from './components/public/public.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { FormImpComponent } from './components/form-imp/form-imp.component';
     CardentrenamientoComponent,
     UsuariosComponent,
     UsuarioFormComponent,
-    FormImpComponent
+    FormImpComponent,
+    PublicComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { FormImpComponent } from './components/form-imp/form-imp.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    NgxDataTableModule
+    NgxDataTableModule,
+    FacebookModule.forRoot(),
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
