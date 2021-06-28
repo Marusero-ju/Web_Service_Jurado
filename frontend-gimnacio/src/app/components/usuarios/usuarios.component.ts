@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { LoginService } from 'src/app/services/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -19,7 +20,17 @@ export class UsuariosComponent implements OnInit {
   constructor(private toastr: ToastrService,
               private router: Router,
               private usuarioService: UsuarioService,
-              private alumnoService: AlumnoService) { }
+              private alumnoService: AlumnoService,
+              private loginService: LoginService) { 
+                if(this.loginService.userLoggedIn()){ 
+                  //acciones normales de componente 
+                  //acciones normales de componente 
+                } 
+                else { 
+                  alert("Debe validarse e ingresar su usuario y clave"); 
+                  this.router.navigate(['login']); 
+                }
+              }
 
   ngOnInit(): void {
     this.cargarUsuarios();
@@ -66,22 +77,27 @@ export class UsuariosComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usuarioService.deleteUsuario(usuario).subscribe(
-          result=>{
-            console.log(result.msg);
-            this.cargarUsuarios();
-            this.toastr.success(result.msg);
-          },
-          error=>{
-            console.log(error);
-            this.toastr.error(error);
-          }
-        );
-        Swal.fire(
-          'Borrado!',
-          'El usuario se ha borrado.',
-          'success'
-        )
+        if (usuario.perfil === 'administrador'){
+          this.toastr.error("No se puede eliminar al usuario ADMINISTRADOR");
+        }else {
+          this.usuarioService.deleteUsuario(usuario).subscribe(
+            result=>{
+              console.log(result.msg);
+              this.cargarUsuarios();
+              this.toastr.success(result.msg);
+            },
+            error=>{
+              console.log(error);
+              this.toastr.error(error);
+            }
+          );
+          Swal.fire(
+            'Borrado!',
+            'El usuario se ha borrado.',
+            'success'
+          )
+        }
+        
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(

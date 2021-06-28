@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Usuario } from 'src/app/models/usuario';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { LoginService } from 'src/app/services/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -24,7 +25,16 @@ export class UsuarioFormComponent implements OnInit {
     private router: Router,
     private usuarioService: UsuarioService,
     private alumnoService: AlumnoService,
-    private rutaActiva: ActivatedRoute) {
+    private rutaActiva: ActivatedRoute,
+    private loginService: LoginService) {
+      if(this.loginService.userLoggedIn()){ 
+        //acciones normales de componente 
+        //acciones normales de componente 
+      } 
+      else { 
+        alert("Debe validarse e ingresar su usuario y clave"); 
+        this.router.navigate(['login']); 
+      }
     }
 
   ngOnInit(): void {

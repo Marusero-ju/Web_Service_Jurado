@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Pago } from 'src/app/models/pago';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { LoginService } from 'src/app/services/login.service';
 import { PagoService } from 'src/app/services/pago.service';
 import * as printJS from 'print-js';
 
@@ -22,7 +24,18 @@ export class PagoComponent implements OnInit {
 
   constructor(private pagoService: PagoService,
               private toastr: ToastrService,
-              private alumnoService: AlumnoService) { }
+              private alumnoService: AlumnoService,
+              private loginService: LoginService,
+              private router: Router) { 
+                if(this.loginService.userLoggedIn()){ 
+                  //acciones normales de componente 
+                  //acciones normales de componente 
+                } 
+                else { 
+                  alert("Debe validarse e ingresar su usuario y clave"); 
+                  this.router.navigate(['login']); 
+                }
+              }
 
   ngOnInit(): void {
     this.cargarPagos();
