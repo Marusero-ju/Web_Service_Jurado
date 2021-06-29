@@ -32,6 +32,9 @@ import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario
 import { FormImpComponent } from './components/form-imp/form-imp.component';
 import { FacebookModule } from 'ngx-fb';
 import { PublicComponent } from './components/public/public.component';
+import { CardFormComponent } from './components/cardentrenamiento/card-form/card-form.component';
+import { CardTableComponent } from './components/cardentrenamiento/card-table/card-table.component';
+import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -51,13 +54,16 @@ import { PublicComponent } from './components/public/public.component';
     PlanFormComponent,
     AsistenciaComponent,
     AsistenciaFormComponent,
-    PruebaComponent
+    PruebaComponent,
     HeaderdefaultComponent,
     CardentrenamientoComponent,
     UsuariosComponent,
     UsuarioFormComponent,
     FormImpComponent,
-    PublicComponent
+    PublicComponent,
+    CardFormComponent,
+    CardTableComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

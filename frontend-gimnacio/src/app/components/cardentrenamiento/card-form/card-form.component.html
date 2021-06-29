@@ -1,0 +1,79 @@
+<div class="card text-center row">
+  <div class="card-header">
+    <h3>Nuevo Card Entrenamiento</h3>
+  </div>
+  <div class="card-body">
+    <form
+      class="form-alumno row"
+      #cardForm="ngForm"
+      enctype="multipart/form-data"
+    >
+      <label for="titulo" class="form-label col-4 mb-3">Titulo</label>
+      <input
+        type="text"
+        class="form-control w-50 mb-3"
+        id="titulo"
+        name="titulo"
+        [(ngModel)]="card.titulo"
+        required
+        #titulo="ngModel"
+      />
+      <div
+        *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)"
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="descripcion" class="form-label col-4 mb-3">Descripción</label>
+      <textarea
+        type="text"
+        class="form-control w-50 mb-3"
+        id="descripcion"
+        name="descripcion"
+        [(ngModel)]="card.descripcion"
+        required
+        #descripcion="ngModel"
+      ></textarea>
+      <div
+        *ngIf="
+          descripcion.invalid && (descripcion.dirty || descripcion.touched)
+        "
+        class="text-danger"
+      >
+        * Este campo es requerido
+      </div>
+
+      <label for="dni" class="form-label col-4 mb-3">Imagen</label>
+      <input
+        type="file"
+        class="form-control w-50 mb-3"
+        name="image"
+        (change)="onFileChange($event)"
+      />
+
+      <button
+        type="submit"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="agregarCard(cardForm)"
+        [disabled]="cardForm.invalid"
+      >
+        Registrar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="limpiarFormulario(cardForm)"
+      >
+        Limpiar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark col-3 mt-3 mx-auto"
+        (click)="cancelar()"
+      >
+        Cancelar
+      </button>
+    </form>
+  </div>
+</div>

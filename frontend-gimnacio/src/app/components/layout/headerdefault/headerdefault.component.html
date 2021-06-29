@@ -77,7 +77,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1">Nosotros</a>
+          <a class="nav-link" [routerLink]="['nosotros']">Nosotros</a>
         </li>
       </ul>
       <div *ngIf="!loginService.userLoggedIn()" class="d-flex mx-3">
