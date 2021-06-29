@@ -1,50 +1,92 @@
 <div class="card text-center row">
-    <div class="card-header">
-      <h3>Cargar dias de Rutinas</h3>
-    </div>
-    <div class="card-body">
-      <form class="form-alumno row">
-        <label for="rutina" class="form-label col-4 mb-3">Descripcion de Rutina</label>
-        <input type="text" class="form-control w-50 mb-3" id="rutina" />
+  <div class="card-header">
+    <h3>Cargar dias de Rutinas</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-rutina row" #rutinaForm="ngForm">
+      <label for="descripcion" class="form-label col-4 mb-3"
+        >Descripcion de Rutina</label
+      >
+      <input
+        type="text"
+        class="form-control w-50 mb-3"
+        id="rutina"
+        name="descripcion"
+        [(ngModel)]="rutina.descripcion"
+      />
 
-        <label for="duracion" class="form-label col-4 mb-3">Duracion</label>
-        <input type="number" class="form-control w-50 mb-3" id="duracion"/>
+      <label for="duracion" class="form-label col-4 mb-3">Duracion</label>
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="duracion"
+        name="duracion"
+        [(ngModel)]="rutina.duracion"
+      />
 
-        <label for="cantidadseries" class="form-label col-4 mb-3">CantidadSeries</label>
-        <input type="number" class="form-control w-50 mb-3" id="cantidadseries" />
+      <label for="cantidadSeries" class="form-label col-4 mb-3"
+        >CantidadSeries</label
+      >
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="cantidadSeries"
+        name="cantidadSeries"
+        [(ngModel)]="rutina.cantidadSeries"
+      />
 
-        <label for="repeticiones" class="form-label col-4 mb-3">Repeticiones</label>
-        <input type="number" class="form-control w-50 mb-3" id="repeticiones" />
+      <label for="repeticiones" class="form-label col-4 mb-3"
+        >Repeticiones</label
+      >
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="repeticiones"
+        name="repeticiones"
+        [(ngModel)]="rutina.repeticiones"
+      />
 
-        <label for="intensidad" class="form-label col-4 mb-3">Intensidad</label>
-        <input type="number" class="form-control w-50 mb-3" id="intensidad" />
+      <label for="intensidad" class="form-label col-4 mb-3">Intensidad</label>
+      <input
+        type="number"
+        class="form-control w-50 mb-3"
+        id="intensidad"
+        name="intensidad"
+        [(ngModel)]="rutina.intensidad"
+      />
 
-        <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
-        <input type="text" class="form-control w-50 mb-3" id="alumno" />
-
-        <label for="ejercicio" class="form-label col-4 mb-3">Ejercicio</label>
-        <input type="text" class="form-control w-50 mb-3" id="ejercicio" />
-  
-        <label for="fechaRutina" class="form-label col-4 mb-3">Fecha de Rutina</label>
-        <input type="date" class="form-control w-50 mb-3" id="fechaRutina" />
-  
-            
-        <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
-        <select
-          class="form-select w-50 mb-3"
-          aria-label="Default select example"
-          id="plan"
-        >
-        <option selected>Seleccione un Modo de Pago</option>
-        <option value="1">Contado</option>
-        <option value="2">Débito</option>
-        <option value="3">Crédito</option>
+      <label for="alumno" class="form-label col-4 mb-3">Alumno</label>
+      <select
+        class="form-select w-50 mb-3"
+        aria-label="Default select example"
+        id="alumno"
+        name="alumno"
+        [(ngModel)]="rutina.alumno"
+        #alumno="ngModel"
+        required
+      >
+        <option *ngFor="let alumno of alumnos" [ngValue]="alumno">
+          {{ alumno.apellido }}, {{ alumno.nombre }} - {{ alumno.dni }}
+        </option>
       </select>
-          
-        <button type="submit" class="btn btn-primary col-3 mt-3 mx-auto">
-          Registrar
-        </button>
-      </form>
 
-    </div>
+      <label for="ejercicio" class="form-label col-4 mb-3">Ejercicio</label>
+      <input
+        type="text"
+        class="form-control w-50 mb-3"
+        id="ejercicio"
+        name="ejercicio"
+        [(ngModel)]="rutina.ejercicio"
+      />
+
+      <label for="fechaRutina" class="form-label col-4 mb-3"
+        >Fecha de Rutina</label
+      >
+      <input type="date" class="form-control w-50 mb-3" id="fechaRutina" />
+
+      <button type="submit" class="btn btn-primary col-3 mt-3 mx-auto">
+        Registrar
+      </button>
+    </form>
+  </div>
 </div>
