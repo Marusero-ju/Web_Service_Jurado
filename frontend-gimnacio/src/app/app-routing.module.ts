@@ -18,6 +18,7 @@ import { CardFormComponent } from './components/cardentrenamiento/card-form/card
 import { CardTableComponent } from './components/cardentrenamiento/card-table/card-table.component';
 import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
+import { AlumnoAsistenciaComponent } from './components/alumno-asistencia/alumno-asistencia.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'posteo', component: PublicComponent},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'home-inicio', component: HomeinicioComponent},
+  {path: 'alumno-asistencia', component: AlumnoAsistenciaComponent},
 
 ];
 

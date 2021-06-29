@@ -38,6 +38,7 @@ import { CardFormComponent } from './components/cardentrenamiento/card-form/card
 import { CardTableComponent } from './components/cardentrenamiento/card-table/card-table.component';
 import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
+import { AlumnoAsistenciaComponent } from './components/alumno-asistencia/alumno-asistencia.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { HomeinicioComponent } from './components/homeinicio/homeinicio.componen
     CardFormComponent,
     CardTableComponent,
     NosotrosComponent,
-    HomeinicioComponent
+    HomeinicioComponent,
+    AlumnoAsistenciaComponent
   ],
   imports: [
     BrowserModule,

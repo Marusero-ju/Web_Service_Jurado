@@ -173,6 +173,7 @@
     <!--Alumno-->
     <a
       class="nav-link d-block"
+      [routerLink]="['alumno-asistencia']"
       [routerLink]="['alumno-form']"
       *ngIf="loginService.perfilLogged() === 'alumno'"
       ><i class="icon ion-md-grid"></i> Asistencia</a
