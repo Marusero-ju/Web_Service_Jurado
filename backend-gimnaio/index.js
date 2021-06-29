@@ -15,6 +15,9 @@ app.use('/api/usuarios', require('./routes/usuario.route'));
 app.use('/api/asistencia', require('./routes/asistencia.route.js'));
 app.use('/api/card', require('./routes/cardEntrenamiento.route.js'));
 
+//Images bd
+app.use('/api', require('./routes/images'))
+app.use('/image', express.static(`${__dirname}/multer/storage/images`))
 
 //setting
 app.set('port', process.env.PORT || 3000);

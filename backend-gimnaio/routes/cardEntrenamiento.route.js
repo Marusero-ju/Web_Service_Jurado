@@ -9,5 +9,7 @@ router.post('/', cardCtrl.createCard);
 router.get('/:id', cardCtrl.getCard);
 router.put('/:id', cardCtrl.editCard);
 router.delete('/:id', cardCtrl.deleteCard);
+//ruta para el almacenamiento de imagen
+// router.post('/upload')
 //exportamos el modulo de rutas
 module.exports = router;

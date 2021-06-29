@@ -1,4 +1,8 @@
 const Card = require('../models/cardEntrenamiento');
+
+// //Uso de multer para almacenar imagenes
+// const upload = require('../multer/storage.js')
+
 const cardCtrl = {}
 
 cardCtrl.getCards = async (req, res) => {
@@ -7,8 +11,15 @@ cardCtrl.getCards = async (req, res) => {
 }
 
 cardCtrl.createCard = async (req, res) => {
+    console.log("Hola")
+    console.log(req.body)
     var card = new Card(req.body);
+    console.log(req.body)
     try {
+        if(req.file){
+            const {filename} = req.file;
+            card.setImgUrl(filename);
+        }
         await card.save();
         res.json({
         'status': '1',
@@ -54,5 +65,6 @@ cardCtrl.deleteCard = async (req, res)=>{
         })
     }
 }
+
 
 module.exports = cardCtrl;
