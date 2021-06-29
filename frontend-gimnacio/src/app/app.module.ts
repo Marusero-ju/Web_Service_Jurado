@@ -34,6 +34,9 @@ import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario
 import { FormImpComponent } from './components/form-imp/form-imp.component';
 import { FacebookModule } from 'ngx-fb';
 import { PublicComponent } from './components/public/public.component';
+import { CardFormComponent } from './components/cardentrenamiento/card-form/card-form.component';
+import { CardTableComponent } from './components/cardentrenamiento/card-table/card-table.component';
+import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
 
 @NgModule({
@@ -63,6 +66,9 @@ import { HomeinicioComponent } from './components/homeinicio/homeinicio.componen
     UsuarioFormComponent,
     FormImpComponent,
     PublicComponent,
+    CardFormComponent,
+    CardTableComponent,
+    NosotrosComponent,
     HomeinicioComponent
   ],
   imports: [
