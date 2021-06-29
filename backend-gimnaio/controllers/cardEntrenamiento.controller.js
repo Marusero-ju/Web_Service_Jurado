@@ -11,10 +11,9 @@ cardCtrl.getCards = async (req, res) => {
 }
 
 cardCtrl.createCard = async (req, res) => {
-    console.log("Hola")
+    console.log("File", req.file)
     console.log(req.body)
     var card = new Card(req.body);
-    console.log(req.body)
     try {
         if(req.file){
             const {filename} = req.file;
