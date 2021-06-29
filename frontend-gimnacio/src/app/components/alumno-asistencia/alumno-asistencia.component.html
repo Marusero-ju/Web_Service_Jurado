@@ -12,7 +12,6 @@
       >
         <thead>
           <tr>
-            <th scope="col">Modificar</th>
             <th scope="col">
               <mfDefaultSorter by="apellido">Apellido y Nombre</mfDefaultSorter>
             </th>
@@ -28,7 +27,9 @@
             <th scope="col">
               <mfDefaultSorter by="plan.nombre">Plan</mfDefaultSorter>
             </th>
-            <th scope="col">Eliminar</th>
+            <th scope="col">
+              <mfDefaultSorter by="asistencia">Asitencia</mfDefaultSorter>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +48,7 @@
             <td>{{ alumno.celular }}</td>
             <td>{{ alumno.email }}</td>
             <td>{{ alumno.plan.nombre }}</td>
+            <td>{{ alumno.asistencia}}</td>
             <td class="button">
               <button
                 type="button"
