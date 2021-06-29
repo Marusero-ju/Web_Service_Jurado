@@ -6,6 +6,6 @@ const { createCard } = require('../controllers/cardEntrenamiento.controller');
 
 const api = express.Router();
 
-api.post('/cards', upload, createCard);
+api.post('/cards', upload.single('image'), createCard);
 
 module.exports = api;
