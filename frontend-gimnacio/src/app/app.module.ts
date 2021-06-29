@@ -51,7 +51,7 @@ import { PublicComponent } from './components/public/public.component';
     PlanFormComponent,
     AsistenciaComponent,
     AsistenciaFormComponent,
-    PruebaComponent
+    PruebaComponent,
     HeaderdefaultComponent,
     CardentrenamientoComponent,
     UsuariosComponent,
