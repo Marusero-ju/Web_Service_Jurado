@@ -22,6 +22,8 @@ import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
+import { RutinaComponent } from './components/rutina/rutina.component';
+import { EjercicioComponent } from './components/rutina/ejercicio/ejercicio.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
@@ -49,6 +51,8 @@ import { PublicComponent } from './components/public/public.component';
     LoginComponent,
     PlanComponent,
     PlanFormComponent,
+    RutinaComponent,
+    EjercicioComponent,
     AsistenciaComponent,
     AsistenciaFormComponent,
     PruebaComponent,
