@@ -1,0 +1,90 @@
+<header class="bg-dark mt-2 mb-2 rounded row">
+  <div class="col-4 col-md-2 offset-md-3 mt-1 mb-1">
+    <img
+      id="logo"
+      src="../../../../assets/images/logo2.png"
+      alt="Logo de la Página"
+    />
+  </div>
+  <div class="col-6 col-md-6 d-flex align-items-center order-2">
+    <h4>Power GYM</h4>
+  </div>
+</header>
+<!-- Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['home']">Menú</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['home']"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['posteo']">Mensaje</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['entrenamiento']">Entrenamiento</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Contacto
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                href="https://wa.me/543884752399/?text=Hola%20quiero%20realizar%20una%20consulta"
+                target="_blank"
+                ><i class="fab fa-whatsapp"></i> Whatsapp</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="https://www.facebook.com/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i> Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="https://www.instagram.com/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i> Instagram</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" tabindex="-1">Nosotros</a>
+        </li>
+      </ul>
+      <div *ngIf="!loginService.userLoggedIn()" class="d-flex mx-3">
+        <a id="iniciar" [routerLink]="['login']">
+          <i class="icon ion-md-contact"></i> Login</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

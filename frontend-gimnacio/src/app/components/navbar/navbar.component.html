@@ -1,34 +1,60 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid nav">
-        <form class="d-flex position-relative">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn position-absolute btn-search" type="submit"><i class="icon ion-md-search"></i></button>
-        </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Nombre de Usuario
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
-                <li><a class="dropdown-item" href="#">Otras Opciones</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-            </ul>
-
-            <div>
-              <a id="iniciar" *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']"> <i class="icon ion-md-contact"></i> Login</a>
-              <a *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
-              {{loginService.userLogged()}} (logout)
+  <div class="container-fluid nav">
+    <form class="d-flex position-relative">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Buscar"
+        aria-label="Search"
+      />
+      <button class="btn position-absolute btn-search" type="submit">
+        <i class="icon ion-md-search"></i>
+      </button>
+    </form>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      *ngIf="loginService.userLoggedIn()"
+    >
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle logout"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="icon ion-md-contact"></i> {{ loginService.userLogged() }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Otras Opciones</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['home']"
+                (click)="logout()"
+              >
+                Cerrar Sesión
               </a>
-              </div>
-
-        </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    </nav>
+  </div>
+</nav>

@@ -24,6 +24,16 @@ import { PlanComponent } from './components/plan/plan.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { RutinaComponent } from './components/rutina/rutina.component';
 import { EjercicioComponent } from './components/rutina/ejercicio/ejercicio.component';
+import { AsistenciaComponent } from './components/asistencia/asistencia.component';
+import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
+import { HeaderdefaultComponent } from './components/layout/headerdefault/headerdefault.component';
+import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { FormImpComponent } from './components/form-imp/form-imp.component';
+import { FacebookModule } from 'ngx-fb';
+import { PublicComponent } from './components/public/public.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +52,16 @@ import { EjercicioComponent } from './components/rutina/ejercicio/ejercicio.comp
     PlanComponent,
     PlanFormComponent,
     RutinaComponent,
-    EjercicioComponent
+    EjercicioComponent,
+    AsistenciaComponent,
+    AsistenciaFormComponent,
+    PruebaComponent,
+    HeaderdefaultComponent,
+    CardentrenamientoComponent,
+    UsuariosComponent,
+    UsuarioFormComponent,
+    FormImpComponent,
+    PublicComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +70,8 @@ import { EjercicioComponent } from './components/rutina/ejercicio/ejercicio.comp
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    NgxDataTableModule
+    NgxDataTableModule,
+    FacebookModule.forRoot(),
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Pago } from 'src/app/models/pago';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { LoginService } from 'src/app/services/login.service';
 import { PagoService } from 'src/app/services/pago.service';
 
 @Component({
@@ -20,7 +21,17 @@ export class PagoFormComponent implements OnInit {
   constructor(private router: Router,
               private pagoService: PagoService,
               private alumnoService: AlumnoService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private loginService: LoginService) { 
+                if(this.loginService.userLoggedIn()){ 
+                  //acciones normales de componente 
+                  //acciones normales de componente 
+                } 
+                else { 
+                  alert("Debe validarse e ingresar su usuario y clave"); 
+                  this.router.navigate(['login']); 
+                }
+              }
 
   ngOnInit(): void {
     this.pago = new Pago();

@@ -1,2 +1,10 @@
-<app-header></app-header>
+<div *ngIf="loginService.userLoggedIn()">
+  <app-header></app-header>
+</div>
+<div *ngIf="!loginService.userLoggedIn()">
+  <app-headerdefault></app-headerdefault>
+  <div class="container mb-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 <app-footer></app-footer>

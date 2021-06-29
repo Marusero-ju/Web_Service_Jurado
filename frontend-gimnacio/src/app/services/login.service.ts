@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   export class LoginService {
     hostBase: string;
     constructor(private _http:HttpClient) {
-    this.hostBase = "http://localhost:3000/api/usuario/";
+    this.hostBase = "http://localhost:3000/api/usuarios/";
  }
     //metodo para logear un usuario
  public login(username: string, password: string):Observable<any> {
@@ -35,7 +35,7 @@ import { Observable } from 'rxjs';
     var resultado = false;
     var usuario = sessionStorage.getItem("user");
     if(usuario!=null){
-    resultado = true;
+      resultado = true;
     }
     return resultado;
  }
@@ -48,6 +48,11 @@ import { Observable } from 'rxjs';
   public idLogged(){
     var id = sessionStorage.getItem("userid");
     return id;
+ }
+
+ public perfilLogged(){
+    var perfil = sessionStorage.getItem("perfil");
+    return perfil;
  }
 
 }

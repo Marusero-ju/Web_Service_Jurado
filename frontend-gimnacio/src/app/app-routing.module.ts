@@ -7,10 +7,16 @@ import { PagoComponent } from './components/pago/pago.component';
 import { LoginComponent } from './components/login/login.component';
 import { PlanFormComponent } from './components/plan/plan-form/plan-form.component';
 import { PlanComponent } from './components/plan/plan.component';
+import { AsistenciaFormComponent } from './components/asistencia-form/asistencia-form.component';
 import { AlumnoComponent } from './components/alumno/alumno.component';
+import { CardentrenamientoComponent } from './components/cardentrenamiento/cardentrenamiento.component';
+import { AsistenciaComponent } from './components/asistencia/asistencia.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { PublicComponent } from './components/public/public.component';
 
 const routes: Routes = [
-  
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'alumno-table', component: AlumnoComponent},
   {path: 'alumno-form', component: AlumnoFormComponent},
@@ -19,8 +25,14 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'plan-table', component: PlanComponent},
   {path: 'plan-form', component: PlanFormComponent},
-  {path: 'plan-form/:plan', component: PlanFormComponent}
-  
+  {path: 'plan-form/:plan', component: PlanFormComponent},
+  {path: 'asistencia-form', component: AsistenciaFormComponent},
+  {path: 'entrenamiento', component: CardentrenamientoComponent},
+  {path: 'asistencia', component: AsistenciaComponent},
+  {path: 'usuario-table', component: UsuariosComponent},
+  {path: 'usuario-form', component: UsuarioFormComponent},
+  {path: 'posteo', component: PublicComponent},
+
 ];
 
 @NgModule({

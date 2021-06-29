@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { LoginService } from 'src/app/services/login.service';
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
   userform: Usuario = new Usuario(); //usuario mapeado al formulario
   returnUrl: string;
   msglogin: string; // mensaje que indica si no paso el loguin
+
+  mostrar_password: boolean;
   constructor(
   private route: ActivatedRoute,
   private router: Router,
@@ -21,33 +24,41 @@ export class LoginComponent implements OnInit {
  }
 
  ngOnInit() {
-  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/entrenamiento';
+  this.mostrar_password = false;
  }
 
- login() {
+ login(form: NgForm) {
   this.loginService.login(this.userform.username, this.userform.password)
   .subscribe(
 
-  (result) => {
-    console.log("entro");
-  var user = result;
-  if (user.status == 1){
-  //guardamos el user en cookies en el cliente
-  sessionStorage.setItem("user", user.username);
-  sessionStorage.setItem("userid", user.userid);
-  sessionStorage.setItem("perfil", user.perfil);
-  //redirigimos a home o a pagina que llamo
-  this.router.navigateByUrl(this.returnUrl);
-  } else {
-  //usuario no encontrado muestro mensaje en la vista
-  this.msglogin="Credenciales incorrectas..";
-  }
-  },
-  error => {
-  alert("Error de conexion");
-  console.log("error en conexion");
-  console.log(error);
- });
+    (result) => {
+      var user = result;
+      if (user.status == 1){
+      //guardamos el user en cookies en el cliente
+      sessionStorage.setItem("user", user.username);
+      sessionStorage.setItem("userid", user.userId);
+      sessionStorage.setItem("perfil", user.perfil);
+      //redirigimos a home o a pagina que llamo
+      this.router.navigateByUrl(this.returnUrl);
+      window.location.href = 'http://localhost:4200/entrenamiento';
+      // this.router.navigate(['entrenamiento']);
+      } else {
+      //usuario no encontrado muestro mensaje en la vista
+      form.reset();
+      this.msglogin="Credenciales incorrectas..";
+      }
+    },
+    error => {
+      alert("Error de conexion");
+      console.log("error en conexion");
+      console.log(error);
+    }
+  );
+ }
+
+ mostrarPassword(){
+   this.mostrar_password = !this.mostrar_password;
  }
 
 
