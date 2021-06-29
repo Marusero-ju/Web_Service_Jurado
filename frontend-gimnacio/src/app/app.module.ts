@@ -39,6 +39,7 @@ import { CardTableComponent } from './components/cardentrenamiento/card-table/ca
 import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
 import { AlumnoAsistenciaComponent } from './components/alumno-asistencia/alumno-asistencia.component';
+import { AlimentacionComponent } from './components/alimentacion/alimentacion.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { AlumnoAsistenciaComponent } from './components/alumno-asistencia/alumno
     CardTableComponent,
     NosotrosComponent,
     HomeinicioComponent,
-    AlumnoAsistenciaComponent
+    AlumnoAsistenciaComponent,
+    AlimentacionComponent
   ],
   imports: [
     BrowserModule,

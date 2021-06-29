@@ -20,6 +20,7 @@ import { NosotrosComponent } from './components/layout/nosotros/nosotros.compone
 import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
 import { AlumnoAsistenciaComponent } from './components/alumno-asistencia/alumno-asistencia.component';
 import { RutinaComponent } from './components/rutina/rutina.component';
+import { AlimentacionComponent } from './components/alimentacion/alimentacion.component';
 
 const routes: Routes = [
   {path: '', component: HomeinicioComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'home-inicio', component: HomeinicioComponent},
   {path: 'alumno-asistencia', component: AlumnoAsistenciaComponent},
   {path: 'rutina-form', component: RutinaComponent},
+  {path: 'alimentacion', component: AlimentacionComponent},
 
 ];
 

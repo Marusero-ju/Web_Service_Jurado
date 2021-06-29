@@ -33,7 +33,7 @@ export class PublicComponent implements OnInit {
     this.fb.api('/109231908078210/feed', apiMethod,
     {
       "message": this.mensaje,
-      "access_token":"EAACR1ZATv0nkBAMCiXVmcMUinxZBbq9jQODSkGoMQjz12ZBeyToM7dhjzmwXkWhzqLel9PXq3AyXgCZBOedlHN7zr8ZCAdWsefKnqmz5ETGshgp8PtNsELowuJAwe63axPc2mrIVq5fvY3O5WYV3CBZB5FO4aL7lOWUtxrk0fScZCZApxZClxjZB9ymDybi1x60fnokDZBegwmckAZDZD"
+      "access_token":"EAACR1ZATv0nkBADzZCsD12vQ30ZBr15igZAoZAP9XvKj4qmbqYSZAq0DZAOGTChDZAiBrKtTYBaXltGlIzAw6JpaQnS2XHZCfcv2dVUZBsJDi4ZBgJJcshZAEfrqZBF2EqggNjphnV1qofkzAKFAutj7j6NfQEvGAGDbMTCLlQ1sztSh7TcNIzC77Ww2UtH26JhqFXqx2ZCJYVAPE9AxOXW896JwBL"
 
     });
     this.toastr.success("MENSAJE ENVIADO","OPERACION EXITOSA")
