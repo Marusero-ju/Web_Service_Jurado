@@ -1,6 +1,6 @@
 export class DiaRutina {
     _id: string;
-    dia: string;
+    dia: number;
 
     constructor(){
 

@@ -13,6 +13,7 @@ app.use('/api/alumno', require('./routes/alumno.route.js'));
 app.use('/api/plan', require('./routes/planes.route.js'));
 app.use('/api/pago', require('./routes/pago.route.js'));
 app.use('/api/usuarios', require('./routes/usuario.route'));
+app.use('/api/dia', require('./routes/dia-rutina.route.js'));
 app.use('/api/asistencia', require('./routes/asistencia.route.js'));
 app.use('/api/card', require('./routes/cardEntrenamiento.route.js'));
 
