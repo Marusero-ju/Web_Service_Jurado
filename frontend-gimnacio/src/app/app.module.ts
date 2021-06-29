@@ -34,6 +34,7 @@ import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario
 import { FormImpComponent } from './components/form-imp/form-imp.component';
 import { FacebookModule } from 'ngx-fb';
 import { PublicComponent } from './components/public/public.component';
+import { HomeinicioComponent } from './components/homeinicio/homeinicio.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { PublicComponent } from './components/public/public.component';
     UsuariosComponent,
     UsuarioFormComponent,
     FormImpComponent,
-    PublicComponent
+    PublicComponent,
+    HomeinicioComponent
   ],
   imports: [
     BrowserModule,
