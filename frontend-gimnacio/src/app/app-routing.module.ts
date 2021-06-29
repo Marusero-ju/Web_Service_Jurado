@@ -14,6 +14,9 @@ import { AsistenciaComponent } from './components/asistencia/asistencia.componen
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
 import { PublicComponent } from './components/public/public.component';
+import { CardFormComponent } from './components/cardentrenamiento/card-form/card-form.component';
+import { CardTableComponent } from './components/cardentrenamiento/card-table/card-table.component';
+import { NosotrosComponent } from './components/layout/nosotros/nosotros.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,10 +31,13 @@ const routes: Routes = [
   {path: 'plan-form/:plan', component: PlanFormComponent},
   {path: 'asistencia-form', component: AsistenciaFormComponent},
   {path: 'entrenamiento', component: CardentrenamientoComponent},
+  {path: 'entrenamiento-form', component: CardFormComponent},
+  {path: 'entrenamiento-table', component: CardTableComponent},
   {path: 'asistencia', component: AsistenciaComponent},
   {path: 'usuario-table', component: UsuariosComponent},
   {path: 'usuario-form', component: UsuarioFormComponent},
   {path: 'posteo', component: PublicComponent},
+  {path: 'nosotros', component: NosotrosComponent},
 
 ];
 
